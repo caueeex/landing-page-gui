@@ -356,6 +356,13 @@ body {
     transition: transform 0.5s;
 }
 
+.image-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
 .image-placeholder:hover {
     transform: scale(1.02);
 }
@@ -742,6 +749,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
 }
 
 .logo-badge {
@@ -943,6 +951,26 @@ body {
     
     .nav-btn-right {
         right: -24px;
+    }
+
+    .hero-image .image-placeholder,
+    .about-image .image-placeholder,
+    .more-info-image .image-placeholder {
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .logo-badge {
+        flex: 0 0 45%;
+        justify-content: center;
+    }
+
+    .logo-img {
+        max-height: 55px;
+    }
+
+    .logo-img--large {
+        max-height: 70px;
     }
 }
 
