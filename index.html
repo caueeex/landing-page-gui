@@ -194,7 +194,9 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-circle">GM</div>
+                    <div class="logo-circle">
+                        <img src="logo-gui.png" alt="Guilherme de Moraes" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
                     <div class="logo-text">
                         <p class="logo-name">GUILHERME DE MORAES</p>
                         <p class="logo-subtitle">Psicólogo • Psicanalista • CRP 06/20645-5</p>
@@ -235,27 +237,24 @@
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
-                        <div class="hero-badge">
-                            <i data-lucide="heart"></i>
-                            <span>Bem-vindo</span>
-                        </div>
                         <h1 class="hero-title">
                             Procurar ajuda é um ato de 
-                            <span class="text-primary">humildade</span> e 
-                            <span class="text-secondary">amor próprio.</span>
-                            <i data-lucide="heart" class="heart-icon"></i>
+                            <img src="ato.png" alt="imagem Ato" width="24%"> 
+                            <span class="typewriter-text" id="typewriterText"></span>
+                            <span class="typewriter-cursor">
+                                <img src="icon-hearth.png" alt="Ícone coração" width="30" height="30">
+                            </span>
                         </h1>
                         <p class="hero-subtitle">
                             Um espaço seguro e acolhedor para você cuidar da sua saúde mental com profissionalismo e empatia.
                         </p>
                         <div class="hero-buttons">
-                            <button class="btn-primary" onclick="scrollToSection('contact')">AGENDE SUA CONSULTA</button>
-                            <button class="btn-outline" onclick="scrollToSection('about')">Saiba mais</button>
+                            <button class="btn-outline" onclick="openApproachModal()">Qual é minha abordagem?</button>
                         </div>
                     </div>
                     <div class="hero-image">
                         <div class="image-placeholder">
-                            <p>Foto profissional do psicólogo<br><small>(será substituída pela imagem real)</small></p>
+                           <img src="img-gui.png" alt="Guilhemre Imagem">
                         </div>
                         <div class="hero-decoration decoration-1"></div>
                         <div class="hero-decoration decoration-2"></div>
@@ -279,64 +278,199 @@
                     <div class="carousel" id="servicesCarousel">
                         <div class="carousel-track" id="servicesTrack">
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="brain"></i></div>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="15.8 16.0 480.2 480.0" zoomAndPan="magnify" style="fill: rgb(39, 98, 180);" width="32" height="32">
+                                        <g data-name="Glyph" id="__id1_sstevbpw3x">
+                                            <path d="M352,104a8,8,0,0,0,8-8V72a8,8,0,0,0-16,0V96A8,8,0,0,0,352,104Z" style="fill: inherit;"/>
+                                            <path d="M314.83,106.14a8,8,0,1,0,11.31-11.31l-17-17a8,8,0,1,0-11.31,11.31Z" style="fill: inherit;"/>
+                                            <path d="M383.52,108.48a8,8,0,0,0,5.65-2.34l17-17a8,8,0,1,0-11.31-11.31l-17,17a8,8,0,0,0,5.66,13.65Z" style="fill: inherit;"/>
+                                            <path d="M352,16A143.54,143.54,0,0,0,247.12,61.6,192.12,192.12,0,0,0,200,56C114.8,56,47.36,113.28,32.08,198.72l-16,96a8.31,8.31,0,0,0,1.84,6.48A8.09,8.09,0,0,0,24,304H64V408a8,8,0,0,0,8,8H192v72a8,8,0,0,0,8,8H352a8,8,0,0,0,8-8V303.6c75.68-4.16,136-66.88,136-143.6C496,80.56,431.44,16,352,16ZM136,376a8,8,0,0,1-8-8c0-20.88-30.08-24-48-24V328c57.76,0,64,28,64,40A8,8,0,0,1,136,376Zm16-128H96a8,8,0,0,1,0-16h56a8,8,0,0,1,0,16Zm200,40c-70.56,0-128-57.44-128-128S281.44,32,352,32,480,89.44,480,160,422.56,288,352,288Z" style="fill: inherit;"/>
+                                            <path d="M421.92,152c4.24-9.6.88-20.24-5.68-26.72-8.08-8-21.84-10.56-32.48-.08L352,159.92,320.24,125.2c-10.64-10.48-24.4-7.92-32.48.08-6.56,6.48-9.92,17.12-5.68,26.72H267.52c-15.2.4-23.68,12.32-23.68,23.92s8.48,23.68,23.84,24.08h14.48a24.37,24.37,0,0,0,5.52,26.88c8.64,9,24.24,9,32.72-.16l31.6-34.8,31.6,34.8c8.48,9.12,24.08,9.2,32.72.16A24.37,24.37,0,0,0,421.84,200h14.48c15.36-.4,23.84-12.4,23.84-24.08S451.68,152.4,436.48,152Z" style="fill: inherit;"/>
+                                        </g>
+                                    </svg>
+                                </div>
                                 <h3>Conflitos Internos</h3>
-                                <p>Trabalhe questões profundas relacionadas a conflitos e contradições internas que afetam seu bem-estar.</p>
+                                <p>Buscamos alinhar 
+                                    os elementos que compõem nossa 
+                                    mente para que 
+                                    atuem em harmonia.</p>
+                            </div>
+                            
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="-5.4 -18.9 387.9 400.2" zoomAndPan="magnify" style="fill: rgb(39, 98, 180);" width="32" height="32">
+                                        <g>
+                                            <g id="__id9_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M200.3,8.5c57.4,0,107.8,30.1,136.2,75.4l0,0c46,71.4,34.2,159.7-24.9,222.2c-17.7,18.7-39.5,35.1-65.3,48.1 c35-23,61.4-51,79.3-84c-29.5,36.6-74.6,60-125.3,60c-88.8,0-160.8-72-160.8-160.8C39.5,80.5,111.5,8.5,200.3,8.5L200.3,8.5z" fill-opacity=".549" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id10_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M200.3,28.9c26.7,0,51.8,7,73.6,19.2C230.2,17.2,167.7,10.7,86.2,28.4c144-47.3,241,10.8,261.5,120.2 c1.2,5.8,2.1,11.7,2.6,17.7l0,0.4l0,0c0.4,4.3,0.6,8.6,0.6,12.9c0,83.2-67.4,150.6-150.6,150.6c-83.2,0-150.6-67.4-150.6-150.6 C49.7,96.3,117.1,28.9,200.3,28.9L200.3,28.9z" fill-opacity=".549" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <linearGradient xmlns:xlink="http://www.w3.org/1999/xlink" gradientTransform="matrix(.02835 0 0 -.02835 -59.688 -53.865)" gradientUnits="userSpaceOnUse" id="__id11_sstevbpw3x" x1="14523.143" x2="2743.654" xlink:actuate="onLoad" xlink:show="other" xlink:type="simple" y1="-4207.054" y2="-12597.517">
+                                                <stop offset="0" style="stop-color: rgb(39, 98, 180);"/>
+                                                <stop offset="1" style="stop-color: rgb(39, 98, 180);"/>
+                                            </linearGradient>
+                                            <circle clip-rule="evenodd" cx="200.3" cy="173.5" fill-rule="evenodd" r="142.8" style="fill: url(&quot;#__id11_sstevbpw3x&quot;);"/>
+                                            <g id="__id12_sstevbpw3x">
+                                                <circle clip-rule="evenodd" cx="203.5" cy="185.7" fill-rule="evenodd" r="132.8" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id13_sstevbpw3x">
+                                                <circle clip-rule="evenodd" cx="195.4" cy="180.2" fill-rule="evenodd" r="129.1" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id14_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M197.9,74.3c63,0,114.1,51.1,114.1,114.1s-51.1,114.1-114.1,114.1S83.8,251.4,83.8,188.4 S134.9,74.3,197.9,74.3L197.9,74.3z" fill-opacity=".749" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id15_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M193.6,56.1c63,0,114.1,51.1,114.1,114.1c0,63-51.1,114.1-114.1,114.1c-63,0-114.1-51.1-114.1-114.1 C79.5,107.2,130.6,56.1,193.6,56.1z" fill-opacity=".749" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <linearGradient xmlns:xlink="http://www.w3.org/1999/xlink" gradientTransform="matrix(.02835 0 0 -.02835 -59.688 -53.865)" gradientUnits="userSpaceOnUse" id="__id16_sstevbpw3x" x1="105719832" x2="153930912" xlink:actuate="onLoad" xlink:show="other" xlink:type="simple" y1="-8478.818" y2="-8478.818">
+                                                <stop offset="0" style="stop-color: rgb(39, 98, 180);"/>
+                                                <stop offset="1" style="stop-color: rgb(39, 98, 180);"/>
+                                            </linearGradient>
+                                            <path clip-rule="evenodd" d="M208.4,88.1c54.3,0,98.4,44.1,98.4,98.4c0,54.4-44.1,98.4-98.4,98.4s-98.4-44.1-98.4-98.4 C109.9,132.1,154,88.1,208.4,88.1z" fill-opacity=".749" fill-rule="evenodd" style="fill: url(&quot;#__id16_sstevbpw3x&quot;);"/>
+                                            <g id="__id17_sstevbpw3x">
+                                                <circle clip-rule="evenodd" cx="201" cy="172.6" fill-rule="evenodd" r="81.3" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id18_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M372.1,201.5c4.2-40.3-0.3-77.1-15.5-108.7c-14.7-30.8-39.5-56.6-72.6-79.1c29.8,22.8,53.3,49.7,68.1,80.8 C367.4,126.5,373.5,162.8,372.1,201.5z" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id19_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M25.5,196.3c11.2,37.3,26.1,69,50.1,93c32.4,32.4,78.1,51.9,122.7,60.2c-58.5-1.1-102.9-23.1-132.3-54.2 C42.6,270.6,26.2,233.1,25.5,196.3L25.5,196.3z" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id20_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M162.5,0C51.4-0.2-5.4,64.3,0.4,178.4C7.2,72.6,64,8.2,162.5,0z" fill-opacity=".549" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id21_sstevbpw3x">
+                                                <path clip-rule="evenodd" d="M339.2,306.2c-32,37-66.1,59.4-102.2,67.1c-37,8-76.2,0.6-117.6-22.1c43.5,18.3,84.3,22.9,122.4,13.9 C276.6,356.9,309,337.2,339.2,306.2L339.2,306.2z" fill-opacity=".549" fill-rule="evenodd" style="fill: rgb(39, 98, 180);"/>
+                                            </g>
+                                            <g id="__id22_sstevbpw3x">
+                                                <circle clip-rule="evenodd" cx="201" cy="172.6" fill-rule="evenodd" r="75.3" style="fill: rgb(28, 86, 167);"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h3>Vazio e Depressão</h3>
+                                <p>Entramos em contato com nossa essência 
+                                    para que nosso próprio propósito floresça naturalmente.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="heart"></i></div>
-                                <h3>Fortalecimento Emocional</h3>
-                                <p>Desenvolva recursos para lidar com emoções de forma saudável e fortaleça sua inteligência emocional.</p>
+                                <div class="service-icon">
+                                    <img src="medo-ansiedade.png" alt="Medo e Ansiedade" style="width: 32px; height: 32px; object-fit: contain;">
+                                </div>
+                                <h3>Medo e Ansiedade</h3>
+                                <p>Trabalhe questões relacionadas a medos, ansiedade e transtornos de ansiedade para encontrar equilíbrio e paz.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="target"></i></div>
-                                <h3>Metas e Autoestima</h3>
-                                <p>Alcance seus objetivos pessoais enquanto constrói uma autoestima sólida e duradoura.</p>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="-1.8 0.0 318.4 286.4" zoomAndPan="magnify" style="fill: rgb(39, 98, 180);" width="32" height="32">
+                                        <g data-name="Layer 2">
+                                            <g data-name="Capa 1">
+                                                <g id="__id23_sstevbpw3x">
+                                                    <path d="M.47,113.6c-2.24,15.65,4.14,64.12,7.38,82.32,10.07,56.27,82.21,90.43,95.5,88.05,14.27-2.55,73.05-60.12,63-116.38-3.24-18.2-14.46-65.81-22.53-79.61,0,0-24.93,28.15-65.86,35.48C39.49,130.33.47,113.6.47,113.6Z" style="fill: rgb(39, 98, 180);"/>
+                                                </g>
+                                                <g id="__id24_sstevbpw3x">
+                                                    <path d="M64.38,243.18c-3.66-2.07-3.62-8.89,1.31-13.75a53.83,53.83,0,0,1,59.84-10.7c6.31,2.86,8.69,9.24,6,12.45h0c-2.72,3.25-8,3.35-12.27,1.47a38.57,38.57,0,0,0-42.83,7.66c-3.34,3.23-8.35,5-12,2.87Z" style="fill: rgb(255, 255, 255);"/>
+                                                </g>
+                                                <g id="__id25_sstevbpw3x">
+                                                    <path d="M76.44,169.56a24.75,24.75,0,0,1-6.3,12.88,21.69,21.69,0,0,1-12.55,6.79,22.52,22.52,0,0,1-13.9-2.48,27.92,27.92,0,0,1-10.28-9.27l2.1-3.64c4,1,7.52,2,10.86,2.59a27.48,27.48,0,0,0,9.18.21,24,24,0,0,0,8.38-3.15,65.21,65.21,0,0,0,8.55-6.34Z" style="fill: rgb(255, 255, 255);"/>
+                                                </g>
+                                                <g id="__id26_sstevbpw3x">
+                                                    <path d="M137.76,158.59a24.62,24.62,0,0,1-6.29,12.89,21.77,21.77,0,0,1-12.56,6.79,22.44,22.44,0,0,1-13.9-2.49,27.86,27.86,0,0,1-10.27-9.26l2.1-3.64c4,1,7.52,2,10.85,2.58a27.23,27.23,0,0,0,9.18.22,23.71,23.71,0,0,0,8.38-3.16,62.93,62.93,0,0,0,8.55-6.33Z" style="fill: rgb(255, 255, 255);"/>
+                                                </g>
+                                                <g id="__id27_sstevbpw3x">
+                                                    <path d="M182,0c-10.31,12-31,56.25-38.12,73.33-21.85,52.82,20.49,120.5,33,125.66,13.39,5.54,94-11.29,115.81-64.1,7.05-17.09,23.27-63.24,23.91-79.21,0,0-36.17,10.29-74.59-5.61C205.91,35.13,182,0,182,0Z" style="fill: rgb(39, 98, 180);"/>
+                                                </g>
+                                                <g id="__id28_sstevbpw3x">
+                                                    <path d="M238.83,150.43c2.14,4-1.86,10.18-9.15,11.73A58.06,58.06,0,0,1,169.1,137.1c-4.07-6.25-2.54-13.46,1.8-14.78h0c4.36-1.37,9.23,1.62,12,5.79A41.52,41.52,0,0,0,226.26,146c4.9-1,10.48.35,12.57,4.39Z" style="fill: rgb(255, 255, 255);"/>
+                                                </g>
+                                                <g id="__id29_sstevbpw3x">
+                                                    <path d="M231.22,97a24.5,24.5,0,0,1,12.23-7.46,21.55,21.55,0,0,1,14.24,1,22.72,22.72,0,0,1,10.37,9.59,27.92,27.92,0,0,1,3.67,13.35L268,115.42c-2.84-3-5.26-5.77-7.75-8a27.54,27.54,0,0,0-7.63-5.12,23.5,23.5,0,0,0-8.74-1.86,63.89,63.89,0,0,0-10.64.72Z" style="fill: rgb(255, 255, 255);"/>
+                                                </g>
+                                                <g id="__id30_sstevbpw3x">
+                                                    <path d="M173.65,73.15A24.41,24.41,0,0,1,185.9,65.7a21.59,21.59,0,0,1,14.23,1,22.65,22.65,0,0,1,10.36,9.59,27.71,27.71,0,0,1,3.66,13.35l-3.73,1.94c-2.83-3-5.23-5.76-7.74-8a27.25,27.25,0,0,0-7.63-5.12,23.46,23.46,0,0,0-8.74-1.87,66.06,66.06,0,0,0-10.63.73Z" style="fill: rgb(255, 255, 255);"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h3>Baixa Autoestima</h3>
+                                <p>Nos desfazemos das ilusões que nos fazem sentir insuficientes ou abaixo das outras pessoas.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="user"></i></div>
-                                <h3>Fobias ou Doenças</h3>
-                                <p>Tratamento especializado para fobias, transtornos de ansiedade e questões relacionadas à saúde mental.</p>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="376.0 376.0 1748.0 1748.0" zoomAndPan="magnify" style="fill: rgb(39, 98, 180);" width="32" height="32">
+                                        <g id="__id31_sstevbpw3x">
+                                            <path d="M1989.22034,1655.72034C1930.33899,1717.35876,1847.53955,1756,1756,1756s-174.33899-38.64124-233.22034-100.27966 C1440.44067,1723.33899,1388,1825.46045,1388,1940v138c0,25.29932,20.70056,46,46,46h644c25.29932,0,46-20.70068,46-46v-138 C2124,1825.46045,2071.55933,1723.33899,1989.22034,1655.72034z" style="fill: inherit;"/>
+                                            <circle cx="1756" cy="1434" r="230" style="fill: inherit;"/>
+                                            <path d="M1112,1250v-138c0-114.53955-52.44067-216.66101-134.77966-284.27966C918.33899,889.35876,835.53955,928,744,928 s-174.33899-38.64124-233.22034-100.27966C428.44067,895.33899,376,997.46045,376,1112v138c0,25.29944,20.70056,46,46,46h644 C1091.29944,1296,1112,1275.29944,1112,1250z" style="fill: inherit;"/>
+                                            <circle cx="744" cy="606" r="230" style="fill: inherit;"/>
+                                            <path d="M1158,1848H882v-138h46c17.69922,0,33.78125-10.15234,41.46289-26.05469 c7.63672-15.94727,5.52539-34.85938-5.52539-48.69531l-184-230c-17.51953-21.83203-54.35547-21.83203-71.875,0l-184,230 c-11.05078,13.83594-13.16211,32.74805-5.52539,48.69531C526.21875,1699.84766,542.30078,1710,560,1710h46v276 c0,76.09766,61.90234,138,138,138h414c76.09766,0,138-61.90234,138-138C1296,1911.20508,1232.79492,1848,1158,1848z" style="fill: inherit;"/>
+                                            <path d="M1204,652h414v138h-46c-17.69922,0-33.78125,10.15234-41.46289,26.05469 c-7.63672,15.94727-5.52539,34.85938,5.52539,48.69531c0,0,183.8175,229.76978,184,230 c18.22424,22.78101,53.67041,22.68555,71.875,0l184-230c11.05078-13.83594,13.16211-32.74805,5.52539-48.69531 C1973.78125,800.15234,1957.69922,790,1940,790h-46V514c0-76.09766-61.90234-138-138-138h-552c-76.09766,0-138,61.90234-138,138 C1066,588.79492,1129.20508,652,1204,652z" style="fill: inherit;"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h3>Relações Difíceis</h3>
+                                <p>Aprendemos a nos relacionar com os outros e a nos contentar em fazermos apenas a nossa parte.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="smile"></i></div>
-                                <h3>Busca Autoconhecimento</h3>
-                                <p>Explore seu mundo interior através de um processo de autoconhecimento profundo e transformador.</p>
+                                <div class="service-icon">
+                                    <img src="carreira.png" alt="Carreira e Financeiro" style="width: 32px; height: 32px; object-fit: contain;">
+                                </div>
+                                <h3>Carreira e Financeiro</h3>
+                                <p>Traçamos estratégias personalizadas para caminharmos de forma eficiente e alinhada com o que queremos.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="users"></i></div>
-                                <h3>Relações Tóxicas</h3>
-                                <p>Identifique e trabalhe padrões relacionais prejudiciais para construir vínculos mais saudáveis.</p>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="220.0 153.9 155.4 398.5" zoomAndPan="magnify" style="fill: rgb(39, 98, 180);" width="32" height="32">
+                                        <g id="__id5_sstevbpw3x">
+                                            <path d="m330 242.38l-20 10s30 49.987 30 60h-18.594c-0.46645 0.27874-0.92558 0.55418-1.4062 0.8125-12.542 7.609-28.39 6.3264-40.75-0.8125h-19.25c-40 0-40 100-40 100h30l10-60v80l-20 120h40l20-100 20 100h40l-20-120v-80s26.622-23.679 30-40c5.4464-26.317-40-70-40-70zm-29.469 5.9688c-0.45355-0.0026-0.92086 0.01389-1.375 0.03125-23.932-0.72089-41.516 28.997-29.531 49.656 4.1966 8.59 12.32 14.454 21.375 16.938 0.64678 0.17737 1.3136 0.32601 1.9688 0.46875 0.21964 0.04516 0.43606 0.08315 0.65625 0.125 0.43831 0.08739 0.8716 0.17824 1.3125 0.25 0.72661 0.11532 1.4575 0.20379 2.1875 0.28125 0.60264 0.0622 1.1772 0.12359 1.7812 0.15625 0.18778 0.01164 0.37469 0.02227 0.5625 0.03125 0.25641 0.00999 0.52488-0.00461 0.78125 0 0.30955 0.0087 0.62813 0.02999 0.9375 0.03125 8.5815-0.0653 17.008-3.1909 22.969-9.8438 3.2355-3.1656 5.6646-6.9949 7.2812-11.156-7.1156-15.188-16.168-29.532-24.438-44.062 1.2102-0.4007 2.4151-0.81714 3.625-1.2188-3.2497-1.0813-6.6553-1.6678-10.094-1.6875z" style="fill: inherit;"/>
+                                        </g>
+                                        <g id="__id6_sstevbpw3x">
+                                            <path d="m298.16 153.94c-1.0078-0.0131-2.5117 0.30915-4.4688 0.9375-1.957 0.62849-3.8125 1.6656-5.5938 3.0938-0.70899 0.64606-1.2637 1.2418-1.6562 1.8438-0.39258 0.60212-0.5879 1.3345-0.59375 2.1562 0.0996 1.3462 0.69726 2.5006 1.7812 3.4688 1.084 0.96832 2.0644 1.4859 2.9375 1.5312 0.67822-0.25189 2.063-1.2675 4.1562-3.0312 2.0932-1.7636 4.8335-2.7792 8.2188-3.0312 1.9101 0.0118 3.375 0.48053 4.4062 1.4062 1.0312 0.92584 1.5508 2.2383 1.5625 3.9375-0.18021 1.9629-1.4204 3.8887-3.7188 5.7812-2.2984 1.8926-4.5894 3.5918-6.8438 5.0625-3.3281 2.4126-5.6719 4.5201-7.0312 6.3438-1.3594 1.8238-2.0156 3.6538-1.9688 5.4688 0.23437 3.2315 1.7109 6.0596 4.4062 8.5s5.2187 4.0654 7.5625 4.9062l1.8125-2.4375c-1.4795-1.2978-2.585-2.5713-3.3438-3.7812-0.75881-1.2099-1.1533-2.6084-1.1562-4.1875 0.27244-2.4243 1.7802-4.6684 4.5312-6.75 2.751-2.0815 5.1025-3.7905 7.0625-5.125 1.8779-1.4824 3.2256-2.955 4.0312-4.4375 0.80562-1.4824 1.208-3.1347 1.1875-4.9688-0.1641-4.4472-1.918-8.3105-5.2812-11.562-3.3633-3.2519-7.3438-4.9667-11.938-5.125h-0.0625zm48 10.875c-1.5636 7.1e-4 -3.1611 0.23494-4.8125 0.6875-0.90721 0.31152-1.6507 0.66582-2.25 1.0625-0.59936 0.39678-1.0747 0.96688-1.4062 1.7188-0.44303 1.2752-0.36056 2.5873 0.25 3.9062 0.6105 1.3191 1.3104 2.1743 2.0938 2.5625 0.72247 0.038 2.3786-0.3372 5-1.125 2.6214-0.78771 5.5429-0.64384 8.75 0.46875 1.7485 0.7691 2.921 1.7722 3.5 3.0312 0.57894 1.2591 0.53876 2.6858-0.125 4.25-0.94465 1.7301-2.858 3.0191-5.7188 3.8438-2.8608 0.82469-5.6283 1.4514-8.2812 1.9062-4.0124 0.89318-6.9971 1.8971-8.9688 3.0312-1.9717 1.1342-3.2913 2.5656-3.9688 4.25-1.0677 3.059-0.84879 6.2214 0.65625 9.5312 1.505 3.3099 3.1826 5.8291 5 7.5312l2.625-1.5312c-0.84273-1.7785-1.3464-3.3695-1.5625-4.7812-0.21613-1.4117-0.03047-2.862 0.59375-4.3125 1.2125-2.1169 3.4925-3.5878 6.8438-4.4062 3.3512-0.81838 6.2025-1.4282 8.5312-1.875 2.3121-0.61508 4.1407-1.4592 5.4688-2.5 1.3279-1.0407 2.322-2.4023 3.0312-4.0938 1.6148-4.1469 1.5459-8.3676-0.25-12.688-1.796-4.3198-4.7841-7.4686-8.9375-9.4375l-0.0625-0.03125c-0.91981-0.41213-2.3918-0.70606-4.4375-0.90625-0.51143-0.05002-1.0413-0.09399-1.5625-0.09375zm-94.438 1.0625c-1.6259 0.04788-3.2615 0.32806-4.9062 0.84375l-0.0625 0.03125c-0.95506 0.3221-2.2687 1.1016-3.9062 2.3438-1.6376 1.2423-3.0436 2.8429-4.25 4.7812-0.45441 0.84473-0.76695 1.6144-0.9375 2.3125-0.17052 0.69828-0.14217 1.4417 0.125 2.2188 0.54073 1.2369 1.4999 2.1339 2.8438 2.6875 1.3439 0.55371 2.4114 0.68445 3.25 0.4375 0.55617-0.4627 1.5482-1.8603 2.9375-4.2188 1.3894-2.3583 3.6402-4.2326 6.75-5.5938 1.8058-0.62276 3.345-0.65602 4.625-0.125 1.28 0.53114 2.2063 1.5885 2.7812 3.1875 0.48142 1.9115-0.05377 4.1395-1.5938 6.6875-1.54 2.5481-3.1114 4.8958-4.75 7.0312-2.3389 3.3804-3.8541 6.1723-4.5312 8.3438-0.67711 2.1715-0.709 4.0848-0.0625 5.7812 1.2935 2.9706 3.6163 5.1549 6.9688 6.5625 3.3524 1.4077 6.2913 2.1409 8.7812 2.1562l0.90625-2.9375c-1.8264-0.73329-3.2889-1.5479-4.4062-2.4375-1.1173-0.88954-1.942-2.0738-2.4688-3.5625-0.54752-2.3773 0.12695-4.9984 2.0312-7.875 1.9043-2.8765 3.5627-5.2782 4.9688-7.1875 1.2795-2.0216 2.0444-3.8654 2.3125-5.5312 0.26804-1.6657 0.09674-3.3704-0.53125-5.0938-1.6306-4.1407-4.5919-7.1734-8.8438-9.125-2.6574-1.2197-5.3215-1.7986-8.0312-1.7188zm47.75 45.094c-1.7285 0.0454-3.1504 0.66456-4.2812 1.8438-1.1309 1.1792-1.709 2.6382-1.75 4.4062 0.0439 1.9248 0.60253 3.46 1.7188 4.5938 1.1162 1.1338 2.5264 1.7236 4.1875 1.75h0.125c1.7622-0.0264 3.2055-0.61621 4.3438-1.75 1.1382-1.1338 1.7417-2.6689 1.7812-4.5938-0.0396-1.7681-0.64309-3.227-1.7812-4.4062-1.1382-1.1792-2.5816-1.7983-4.3438-1.8438zm28.906 7.2188c-0.77764-0.00278-1.5282 0.15206-2.2812 0.46875-1.5061 0.63337-2.6355 1.7685-3.375 3.375-0.72382 1.7841-0.79317 3.4225-0.21875 4.9062 0.57437 1.4837 1.6108 2.5664 3.125 3.25l0.125 0.03125c1.6278 0.67535 3.1927 0.74503 4.6875 0.15625 1.4947-0.58879 2.6371-1.7803 3.4375-3.5312 0.66555-1.6385 0.70151-3.2159 0.125-4.75-0.57655-1.5341-1.6507-2.665-3.25-3.4062-0.80227-0.32226-1.5974-0.49722-2.375-0.5zm-59.625 1.5625c-0.59916 0.02371-1.2147 0.14051-1.8438 0.34375-1.6155 0.61645-2.7621 1.6686-3.4375 3.1562-0.67545 1.4877-0.73557 3.0685-0.1875 4.75 0.68018 1.8012 1.7583 3.0509 3.1875 3.75 1.4292 0.69911 2.9242 0.80765 4.5 0.28125l0.125-0.0625c1.6536-0.6097 2.8338-1.6465 3.5312-3.0938 0.6974-1.4472 0.75768-3.0774 0.15625-4.9062-0.62411-1.6547-1.6912-2.8278-3.1562-3.5625-0.91564-0.45915-1.8764-0.69577-2.875-0.65625z" style="fill: inherit;"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h3>Falta de Direção</h3>
+                                <p>Construímos fundações sólidas para podemos decidir com confiança e consciência nossas próprias decisões.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="message-circle"></i></div>
-                                <h3>Vozes ou Relacionamento</h3>
-                                <p>Abordagem de questões relacionadas à comunicação, vozes internas e dinâmicas de relacionamento.</p>
+                                <div class="service-icon">
+                                    <img src="vicios.png" alt="Vícios e Autocontrole" style="width: 32px; height: 32px; object-fit: contain;">
+                                </div>
+                                <h3>Vícios e Autocontrole</h3>
+                                <p>Trabalhe questões relacionadas a vícios e desenvolva maior autocontrole e autonomia.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="clock"></i></div>
-                                <h3>Crises Vitoriosas</h3>
-                                <p>Supere momentos de crise e transforme desafios em oportunidades de crescimento pessoal.</p>
+                                <div class="service-icon">
+                                    <img src="ciclos-viciosos.png" alt="Ciclos Viciosos" style="width: 32px; height: 32px; object-fit: contain;">
+                                </div>
+                                <h3>Ciclos Viciosos</h3>
+                                <p>Identifique e rompa padrões repetitivos e destrutivos que impedem seu crescimento pessoal.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="briefcase"></i></div>
-                                <h3>Carreira e Propósito</h3>
-                                <p>Encontre significado e direção na sua vida profissional alinhando carreira com seus valores.</p>
+                                <div class="service-icon">
+                                    <img src="autossabotagem.png" alt="Autossabotagem" style="width: 32px; height: 32px; object-fit: contain;">
+                                </div>
+                                <h3>Autossabotagem</h3>
+                                <p>Desarmamos os padrões disfuncionais que te levam na direção contrária ao que deseja.</p>
                             </div>
                             <div class="service-card">
-                                <div class="service-icon"><i data-lucide="star"></i></div>
-                                <h3>Autodesenvolvimento</h3>
-                                <p>Promova seu desenvolvimento pessoal contínuo e alcance seu potencial máximo.</p>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="10.5 53.4 490.9 401.9" zoomAndPan="magnify" style="fill: rgb(39, 98, 180);" width="32" height="32">
+                                        <g id="__id2_sstevbpw3x">
+                                            <path d="M204.58,368.18c-.75,1.9-.26,4.08,1.23,5.48l45.19,42.49v39.14C76.14,361.07,23.93,241.59,23.32,240.17c-8.48-17.66-12.77-36.62-12.77-56.37,0-71.92,58.51-130.43,130.43-130.43,45.35,0,86.76,23.01,110.78,61.54.01.02.02.04.04.06.04.06.08.11.13.17.11.16.22.3.35.44.07.07.11.15.18.22l45.06,45.07h-75.1c-1.92,0-3.68,1.1-4.51,2.84-.83,1.73-.59,3.79.61,5.29l34.53,42.97-113.06-26.27c-18.59-4.31-37.25,7.3-41.57,25.9l-6.16,26.5c-4.32,18.61,7.3,37.26,25.9,41.58l132.84,30.86v24.99c0,1.33.53,2.6,1.46,3.54l25.95,25.95h-69.18c-2.05,0-3.89,1.25-4.65,3.16ZM371.02,53.37c-44.03,0-84.34,21.69-108.63,58.22l50.74,50.74c1.43,1.43,1.86,3.58,1.08,5.45-.77,1.87-2.59,3.09-4.62,3.09h-76.74l35.97,44.76,71.83,16.69c9.02,2.09,16.67,7.57,21.57,15.42,4.89,7.85,6.43,17.14,4.33,26.16l-6.16,26.5c-3.71,15.98-17.99,26.8-33.73,26.8-2.59,0-5.22-.29-7.84-.9l-57.82-13.43v20.59l33.02,33.02c1.43,1.43,1.86,3.58,1.08,5.45-.77,1.87-2.6,3.09-4.62,3.09h-68.63l37.57,35.33c1.01.94,1.58,2.26,1.58,3.64v41.3c174.86-94.22,227.07-213.7,227.58-214.91,8.58-17.88,12.87-36.84,12.87-56.58,0-71.92-58.51-130.43-130.43-130.43Z" style="fill: rgb(39, 98, 180);"/>
+                                        </g>
+                                        <g id="__id3_sstevbpw3x">
+                                            <path d="M353.73,253.03c-3.48-5.58-8.93-9.48-15.34-10.97l-200.66-46.62c-13.21-3.07-26.5,5.19-29.58,18.42l-6.15,26.51c-3.08,13.23,5.19,26.49,18.42,29.57l200.66,46.62c13.21,3.09,26.5-5.19,29.58-18.43l6.16-26.5c1.48-6.41.39-13.02-3.09-18.6ZM129.55,242.17c-12.08,0-12.06-18.75,0-18.75s12.07,18.75,0,18.75ZM156.54,263.41c-12.08,0-12.06-18.75,0-18.75s12.06,18.75,0,18.75ZM163.14,235.01c-12.09,0-12.07-18.75,0-18.75s12.06,18.75,0,18.75ZM281.16,246.08l-9.67,41.64c-.3,1.3-1.1,2.42-2.23,3.12-.79.49-1.71.75-2.64.75-.38,0-.76-.04-1.13-.13l-84.1-19.54c-1.29-.3-2.42-1.1-3.11-2.22-.71-1.13-.93-2.49-.63-3.78l9.68-41.65c.62-2.69,3.31-4.36,6-3.73l84.1,19.53c2.69.63,4.36,3.32,3.73,6.01ZM295.68,295.73c-12.09,0-12.07-18.75,0-18.75s12.06,18.75,0,18.75ZM302.27,267.34c-12.08,0-12.06-18.75,0-18.75s12.07,18.75,0,18.75ZM329.26,288.57c-12.08,0-12.06-18.75,0-18.75s12.07,18.75,0,18.75Z" style="fill: rgb(39, 98, 180);"/>
+                                        </g>
+                                        <g id="__id4_sstevbpw3x">
+                                            <path d="M270.29 248.68L262.88 280.59 188.52 263.31 195.94 231.41 270.29 248.68z" style="fill: rgb(39, 98, 180);"/>
+                                        </g>
+                                    </svg>
                             </div>
-                            <div class="service-card">
-                                <div class="service-icon"><i data-lucide="lightbulb"></i></div>
-                                <h3>Traumas e Memórias</h3>
-                                <p>Elaboração cuidadosa de traumas e experiências difíceis do passado.</p>
-                            </div>
-                            <div class="service-card">
-                                <div class="service-icon"><i data-lucide="shield"></i></div>
-                                <h3>Terapia Preventiva</h3>
-                                <p>Mantenha sua saúde mental através de um acompanhamento preventivo e contínuo.</p>
+                                <h3>Feridas Emocionais</h3>
+                                <p>Processamos as emoções reprimidas 
+                                    e damos um novo significado para as experiências passadas.</p>
                             </div>
                         </div>
                     </div>
@@ -348,7 +482,7 @@
         </section>
 
         <!-- Approach Section -->
-        <section id="approach" class="approach-section">
+        <!-- <section id="approach" class="approach-section">
             <div class="container">
                 <h2 class="approach-title">Abordagem e especializações para Saúde Mental:</h2>
                 <div class="approach-grid">
@@ -375,7 +509,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Quote Section -->
         <section class="quote-section">
@@ -397,7 +531,7 @@
                 <div class="about-grid">
                     <div class="about-image">
                         <div class="image-placeholder">
-                            <p>Foto profissional<br><small>(imagem do perfil)</small></p>
+                            <img src="img-gui2.png" alt="Guilhemre Imagem">
                         </div>
                     </div>
                     <div class="about-content">
@@ -430,9 +564,15 @@
                         <div class="partner-logos">
                             <p class="partner-label">Formação reconhecida por:</p>
                             <div class="logos-grid">
-                                <div class="logo-badge">UNIP</div>
-                                <div class="logo-badge">Unyleya</div>
-                                <div class="logo-badge">Líbano</div>
+                                <div class="logo-badge">
+                                    <img class="logo-img" src="unip.png" alt="UNIP - Universidade Paulista" loading="lazy">
+                                </div>
+                                <div class="logo-badge">
+                                    <img class="logo-img logo-img--large" src="unyleia.jpeg" alt="Faculdade Unyleya" loading="lazy">
+                                </div>
+                                <div class="logo-badge">
+                                    <img class="logo-img logo-img--large" src="libano.jpeg" alt="Libano" loading="lazy">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -444,87 +584,63 @@
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <h2>O que <span class="text-primary">contam</span> sobre nós?</h2>
-                    <p>É uma honra fazer parte da jornada de transformação e crescimento de cada paciente</p>
+                    <h2>O que <span class="text-primary">dizem</span> sobre mim</h2>
+                    <p>É uma honra fazer parte da <strong>jornada única de transformação e crescimento.</strong>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-content" id="testimonialContent">
-                        <div class="rating">
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                        </div>
-                        <blockquote id="testimonialText"></blockquote>
-                        <div class="testimonial-author">
-                            <p class="author-name" id="testimonialName"></p>
-                            <p class="author-location" id="testimonialLocation"></p>
-                        </div>
-                    </div>
-                    <div class="testimonial-nav">
-                        <button class="nav-btn" id="testimonialPrev" aria-label="Previous testimonial">
+                <div class="testimonials-wrapper">
+                    <button class="nav-btn testimonial-nav-btn nav-btn-left" id="testimonialPrev" aria-label="Previous testimonial">
                             <i data-lucide="chevron-left"></i>
                         </button>
-                        <div class="testimonial-dots" id="testimonialDots"></div>
-                        <button class="nav-btn" id="testimonialNext" aria-label="Next testimonial">
+                    <div class="testimonials-container">
+                        <div class="testimonial-card" id="testimonialCard1"></div>
+                        <div class="testimonial-card" id="testimonialCard2"></div>
+                    </div>
+                    <button class="nav-btn testimonial-nav-btn nav-btn-right" id="testimonialNext" aria-label="Next testimonial">
                             <i data-lucide="chevron-right"></i>
                         </button>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Info Cards Section -->
-        <section id="info" class="info-cards">
+        <!-- More Info Section -->
+        <section id="more-info" class="more-info">
             <div class="container">
-                <div class="section-header">
-                    <h2>Mais <span class="text-secondary">Informações</span></h2>
-                    <p>Cada sessão e contato confirme a admissibilidade de cada paciente</p>
+                <div class="more-info-grid">
+                    <div class="more-info-image">
+                        <div class="image-placeholder">
+                            <img src="mais-informacoes.png" alt="Guilherme de Moraes">
                 </div>
-
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="clock"></i></div>
-                        <h3>Tempo de sessão</h3>
-                        <p>Sessões de 50 minutos com total atenção e dedicação ao seu processo terapêutico.</p>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="calendar"></i></div>
-                        <h3>Atendimento flexível</h3>
-                        <p>Horários adaptados à sua rotina. Atendimento presencial e online disponível.</p>
+                    <div class="more-info-content">
+                        <h2>MAIS <span class="text-primary">INFORMAÇÕES</span></h2>
+                        <p class="more-info-intro">Cada sessão é ajustada <strong>conforme a individualidade de cada paciente.</strong></p>
+                        <div class="info-accordion" id="infoAccordion">
+                            <!-- Info items will be generated by JS -->
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="credit-card"></i></div>
-                        <h3>Preço acessível</h3>
-                        <p>Investimento acessível na sua saúde mental. Consulte valores e formas de pagamento.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="video"></i></div>
-                        <h3>Online</h3>
-                        <p>Atendimento por videochamada com total privacidade e qualidade técnica.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="shield"></i></div>
-                        <h3>Sigilo garantido</h3>
-                        <p>Seu processo é totalmente confidencial, seguindo o código de ética profissional.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="heart-handshake"></i></div>
-                        <h3>Formas de atendimento</h3>
-                        <p>Terapia individual, orientação familiar e acompanhamento contínuo personalizado.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Info Modal -->
+        <div id="infoModal" class="modal">
+            <div class="modal-overlay" onclick="closeInfoModal()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeInfoModal()" aria-label="Fechar modal">
+                    <i data-lucide="x"></i>
+                </button>
+                <h2 class="modal-title" id="infoModalTitle"></h2>
+                <div class="modal-body" id="infoModalBody"></div>
+            </div>
+        </div>
 
         <!-- FAQ Section -->
         <section class="faq">
             <div class="container">
                 <div class="section-header">
                     <h2>Perguntas <span class="text-secondary">Frequentes</span></h2>
-                    <p>Fique à vontade para tirar qualquer dúvida ou pedir mais detalhes diretamente comigo</p>
+                    <p>Fique à vontade para tirar <span class="highlight-text">qualquer dúvida</span> ou pedir <span class="highlight-text">mais detalhes</span> diretamente comigo</p>
                 </div>
 
                 <div class="accordion" id="faqAccordion">
@@ -566,15 +682,6 @@
                                 <div>
                                     <h4>E-mail</h4>
                                     <a href="mailto:contato@guilhermedutra.com">contato@guilhermedutra.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon accent-icon">
-                                    <i data-lucide="map-pin"></i>
-                                </div>
-                                <div>
-                                    <h4>Localização</h4>
-                                    <p>São Paulo, SP - Atendimento online e presencial</p>
                                 </div>
                             </div>
                         </div>
@@ -619,7 +726,9 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <div class="logo-circle">GM</div>
+                        <div class="logo-circle">
+                            <img src="logo-gui.png" alt="Guilherme de Moraes" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
                         <div class="logo-text">
                             <p class="logo-name">GUILHERME DE MORAES</p>
                             <p class="logo-subtitle">Psicólogo • Psicanalista • CRP 06/20645-5</p>
@@ -674,6 +783,28 @@
 
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
+
+    <!-- Approach Modal -->
+    <div id="approachModal" class="modal">
+        <div class="modal-overlay" onclick="closeApproachModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeApproachModal()" aria-label="Fechar modal">
+                <i data-lucide="x"></i>
+            </button>
+            <h2 class="modal-title">Psicoterapia Psicanalítica Integrativa</h2>
+            <div class="modal-body">
+                <p>Psicoterapia Psicanalítica Integrativa é um processo estruturado com base em princípios universais da natureza humana. Ela compreende como nós, seres humanos, experienciamos nossa própria existência e organizamos internamente tudo aquilo que sentimos, desejamos, tememos e repetimos, mesmo quando não temos consciência disso. Não é conversa casual, nem um alívio momentâneo. É um método lógico de investigação e reconfiguração mental.</p>
+                
+                <p>Seu objetivo é identificar os padrões que governam sua vida, entender por que eles existem e transformá-los de modo consciente e eficiente. Isso significa revisar a forma como você interpreta o mundo e reage aos diferentes aspectos da vida. Quando essa reorganização interna acontece de maneira lúcida e bem orientada, você deixa de operar no automático, preso a emoções descontroladas, impulsos imediatos e respostas herdadas do passado.</p>
+                
+                <p>Nesse ponto, você começa a agir com liberdade real, tomando decisões coerentes com o tipo de vida que deseja construir. É aqui que surge uma sensação legítima de paz e satisfação, não porque você evita conflitos, mas porque passa a se mover a partir de clareza, consistência e autonomia, e não de urgência emocional ou defesa inconsciente.</p>
+                
+                <p>No meu trabalho, utilizo tanto técnicas clássicas da Psicanálise, como associação livre, interpretação de conteúdos inconscientes, análise de defesas e exploração de dinâmicas transferenciais, quanto abordagens modernas que ampliam precisão e eficiência, como regulação emocional, psicodinâmica focada e intervenções estruturadas para reduzir padrões reativos.</p>
+                
+                <p>Também incorporo métodos experimentais quando fazem sentido para o caso, como o desenvolvimento de sonhos lúcidos e outras práticas de exploração da experiência interna. O processo é maleável e adaptado ao seu funcionamento. A profundidade, o ritmo e o tipo de intervenção variam conforme a sua estrutura psíquica e o momento que você está vivendo, sempre com o objetivo de manifestar bem-estar legítimo.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <script>
