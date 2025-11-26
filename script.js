@@ -186,6 +186,30 @@ const testimonials = [
         location: "",
         text: "A abordagem empática e personalizada fez toda diferença no meu processo terapêutico. Hoje me sinto mais equilibrado e confiante para enfrentar meus desafios.",
         rating: 5
+    },
+    {
+        name: "C.M.",
+        location: "",
+        text: "Faço terapia com Gui e adoro a capacidade de acolher e ouvir dele. Não é aquela terapia monótona, é algo fundamentado e que te traz clareza aos meus processos, além disso, seus intervenções são sempre pertinentes e gentis com sua vivência. Estar com alguém assim faz com que a jornadas seja mais fácil e leve. ❤️❤️❤️❤️",
+        rating: 5
+    },
+    {
+        name: "R.S.",
+        location: "",
+        text: "Estou fazendo psicoterapia com o Guilherme e não poderia estar mais satisfeito com o acompanhamento. Ele é um profissional incrível, que me acolheu de maneira especial e demonstra um carinho enorme pela profissão e pelos pacientes. Desde a nossa primeira sessão, me conectei com ele e soube que seria essencial para enfrentar as minhas demandas. O Guilherme sempre traz abordagens inovadoras e tarefas de casa que realmente ajudam no processo, e suas percepções são sempre precisas e alinhadas com a realidade. Hoje, me sinto muito feliz, forte e agradecido pelo apoio, acolhimento e paciência que ele oferece. Recomendo muito o trabalho do Guilherme!",
+        rating: 5
+    },
+    {
+        name: "T.A.",
+        location: "",
+        text: "Comecei fazer terapia com o Gui e não imaginei que iria me identificar tanto com sua abordagem. Ele é incrível e sabe bem como conduzir tudo, nunca me senti tão bem. A primeira vez que fiz saí com uma sensação de leveza, nunca tinha tido alguém que tratasse das minhas questões de uma maneira tão afundo e de maneira acolhedora! Indico o Gui de olhos fechados, ele mostra que faz o trabalho dele com total amor!",
+        rating: 5
+    },
+    {
+        name: "J.P.",
+        location: "",
+        text: "O Gui tem sido um apoio essencial na minha jornada. Com sua atenção, empatia e solidariedade, ele me ajuda a compreender melhor meus sentimentos, tomar decisões importantes com mais clareza e fortalecer meu emocional. Sua forma acolhedora de conduzir as sessões tem me proporcionado mais equilíbrio, confiança e bem-estar no dia a dia.",
+        rating: 5
     }
 ];
 
