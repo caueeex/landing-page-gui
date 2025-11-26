@@ -207,11 +207,13 @@
                     <button onclick="scrollToSection('hero')">INÍCIO</button>
                     <button onclick="scrollToSection('services')">ESPECIALIDADES</button>
                     <button onclick="scrollToSection('about')">IMPACTOS</button>
-                    <button onclick="scrollToSection('info')">CARTÃO</button>
                     <button onclick="scrollToSection('testimonials')">DEPOIMENTOS</button>
                 </nav>
 
-                <button class="cta-button" onclick="scrollToSection('contact')">AGENDE SUA CONSULTA</button>
+                <button class="cta-button" onclick="scrollToSection('contact')">
+                    <img src="icon-whatsapp.png" alt="WhatsApp" class="cta-icon">    
+                    AGENDE SUA CONSULTA
+                </button>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <i data-lucide="menu"></i>
                 </button>
@@ -222,7 +224,6 @@
                     <button onclick="scrollToSection('hero')">INÍCIO</button>
                     <button onclick="scrollToSection('services')">ESPECIALIDADES</button>
                     <button onclick="scrollToSection('about')">IMPACTOS</button>
-                    <button onclick="scrollToSection('info')">CARTÃO</button>
                     <button onclick="scrollToSection('testimonials')">DEPOIMENTOS</button>
                     <button class="cta-button" onclick="scrollToSection('contact')">AGENDE SUA CONSULTA</button>
                 </nav>
@@ -238,19 +239,20 @@
                 <div class="hero-grid">
                     <div class="hero-content">
                         <h1 class="hero-title">
-                            Procurar ajuda é um ato de 
+                            <span class="hero-text-dark">Procurar ajuda é um ato</span>
                             <img src="ato.png" alt="imagem Ato" width="24%"> 
-                            <span class="typewriter-text" id="typewriterText"></span>
-                            <span class="typewriter-cursor">
+                            <span class="hero-text-inline"><span class="hero-text-dark">de </span><span class="typewriter-text" id="typewriterText"></span><span class="typewriter-cursor">
                                 <img src="icon-hearth.png" alt="Ícone coração" width="30" height="30">
-                            </span>
+                            </span></span>
                         </h1>
-                        <p class="hero-subtitle">
+                        <!-- <p class="hero-subtitle">
                             Um espaço seguro e acolhedor para você cuidar da sua saúde mental com profissionalismo e empatia.
-                        </p>
+                        </p> -->
+                        <div class="btn-hero">
                         <div class="hero-buttons">
                             <button class="btn-outline" onclick="openApproachModal()">Qual é minha abordagem?</button>
                         </div>
+                    </div>
                     </div>
                     <div class="hero-image">
                         <div class="image-placeholder">
@@ -355,7 +357,7 @@
                             </div>
                             <div class="service-card">
                                 <div class="service-icon">
-                                    <img src="medo-ansiedade.png" alt="Medo e Ansiedade" style="width: 32px; height: 32px; object-fit: contain;">
+                                    <img src="medo-ansiedade.png" alt="Medo e Ansiedade" style="width: 60px; height: 60px; object-fit: contain;">
                                 </div>
                                 <h3>Medo e Ansiedade</h3>
                                 <p>Trabalhe questões relacionadas a medos, ansiedade e transtornos de ansiedade para encontrar equilíbrio e paz.</p>
@@ -414,7 +416,7 @@
                             </div>
                             <div class="service-card">
                                 <div class="service-icon">
-                                    <img src="carreira.png" alt="Carreira e Financeiro" style="width: 32px; height: 32px; object-fit: contain;">
+                                    <img src="carreira.png" alt="Carreira e Financeiro" style="width: 60px; height: 60px; object-fit: contain;">
                                 </div>
                                 <h3>Carreira e Financeiro</h3>
                                 <p>Traçamos estratégias personalizadas para caminharmos de forma eficiente e alinhada com o que queremos.</p>
@@ -435,21 +437,21 @@
                             </div>
                             <div class="service-card">
                                 <div class="service-icon">
-                                    <img src="vicios.png" alt="Vícios e Autocontrole" style="width: 32px; height: 32px; object-fit: contain;">
+                                    <img src="vicios.png" alt="Vícios e Autocontrole" style="width: 60px; height: 60px; object-fit: contain;">
                                 </div>
                                 <h3>Vícios e Autocontrole</h3>
                                 <p>Trabalhe questões relacionadas a vícios e desenvolva maior autocontrole e autonomia.</p>
                             </div>
                             <div class="service-card">
                                 <div class="service-icon">
-                                    <img src="ciclos-viciosos.png" alt="Ciclos Viciosos" style="width: 32px; height: 32px; object-fit: contain;">
+                                    <img src="ciclos-viciosos.png" alt="Ciclos Viciosos" style="width: 60px; height: 60px; object-fit: contain;">
                                 </div>
                                 <h3>Ciclos Viciosos</h3>
                                 <p>Identifique e rompa padrões repetitivos e destrutivos que impedem seu crescimento pessoal.</p>
                             </div>
                             <div class="service-card">
                                 <div class="service-icon">
-                                    <img src="autossabotagem.png" alt="Autossabotagem" style="width: 32px; height: 32px; object-fit: contain;">
+                                    <img src="autossabotagem.png" alt="Autossabotagem" style="width: 60px; height: 60px; object-fit: contain;">
                                 </div>
                                 <h3>Autossabotagem</h3>
                                 <p>Desarmamos os padrões disfuncionais que te levam na direção contrária ao que deseja.</p>
@@ -513,14 +515,23 @@
 
         <!-- Quote Section -->
         <section class="quote-section">
+            <div class="quote-bg-images">
+                <div class="quote-bg-image quote-bg-left"></div>
+                <div class="quote-bg-image quote-bg-right"></div>
+            </div>
             <div class="container">
-                <div class="quote-content">
-                    <i data-lucide="quote" class="quote-icon"></i>
+                <div class="quote-content quote-content-desktop">
                     <blockquote>
-                        "Quem olha para fora <span class="text-primary">sonha</span>, 
-                        quem olha para dentro <span class="text-secondary">desperta</span>."
+                        "Quem olha para fora sonha</span>, 
+                        quem olha para dentro esperta</span>."
                     </blockquote>
                     <cite>— Carl Jung</cite>
+                </div>
+                <div class="quote-content quote-content-mobile">
+                    <blockquote>
+                        Quando alguém acredita em você, torna-se muito mais fácil acreditar em si mesmo.
+                    </blockquote>
+                    <cite>— Norman Vincent Peale</cite>
                 </div>
             </div>
         </section>
@@ -640,7 +651,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Perguntas <span class="text-secondary">Frequentes</span></h2>
-                    <p>Fique à vontade para tirar <span class="highlight-text">qualquer dúvida</span> ou pedir <span class="highlight-text">mais detalhes</span> diretamente comigo</p>
+                    <p>Fique à vontade para tirar <span class="highlight-text">qualquer dúvida</span> ou pedir <span class="highlight-text">mais detalhes</span> diretamente !</p>
                 </div>
 
                 <div class="accordion" id="faqAccordion">
@@ -672,7 +683,7 @@
                                 </div>
                                 <div>
                                     <h4>Telefone / WhatsApp</h4>
-                                    <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
+                                    <a href="https://api.whatsapp.com/send/?phone=5512982621818">+55 12 98262-1818</a>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -749,7 +760,7 @@
 
                 <div class="footer-contact">
                     <h3>Contato</h3>
-                    <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
+                    <a href="https://api.whatsapp.com/send/?phone=5512982621818">+55 12 98262-1818</a>
                     <a href="mailto:contato@guilhermedutra.com">contato@guilhermedutra.com</a>
                     <div class="social-links">
                         <a href="https://instagram.com" target="_blank" aria-label="Instagram">
@@ -773,12 +784,12 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." 
+    <a href="https://api.whatsapp.com/send/?phone=5512982621818?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." 
        target="_blank" 
        rel="noopener noreferrer" 
        class="whatsapp-float"
        aria-label="Contact via WhatsApp">
-        <i data-lucide="message-circle"></i>
+        <img src="icon-whatsapp.png" alt="WhatsApp" class="whatsapp-float-icon">
     </a>
 
     <!-- Toast Notification -->

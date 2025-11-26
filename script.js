@@ -494,12 +494,12 @@ document.addEventListener('keydown', (e) => {
 
 // Typewriter Animation
 const typewriterPhrases = [
-    { text: 'humildade', type: 'primary', after: ' e ', text2: 'amor próprio.', type2: 'secondary' },
-    { text: 'coragem', type: 'primary', after: ' e ', text2: 'autocuidado.', type2: 'secondary' },
-    { text: 'sabedoria', type: 'primary', after: ' e ', text2: 'crescimento pessoal.', type2: 'secondary' },
-    { text: 'força', type: 'primary', after: ' e ', text2: 'transformação.', type2: 'secondary' },
-    { text: 'resiliência', type: 'primary', after: ' e ', text2: 'bem-estar.', type2: 'secondary' },
-    { text: 'autoconhecimento', type: 'primary', after: ' e ', text2: 'evolução.', type2: 'secondary' }
+    { text: 'humildade', type: 'gradient', after: ' e ', text2: 'amor próprio.', type2: 'gradient' },
+    { text: 'coragem', type: 'gradient', after: ' e ', text2: 'autocuidado.', type2: 'gradient' },
+    { text: 'sabedoria', type: 'gradient', after: ' e ', text2: 'clareza.', type2: 'gradient' },
+    { text: 'força', type: 'gradient', after: ' e ', text2: 'transformação.', type2: 'gradient' },
+    { text: 'resiliência', type: 'gradient', after: ' e ', text2: 'bem-estar.', type2: 'gradient' },
+    { text: 'paz', type: 'gradient', after: ' e ', text2: 'equilíbrio.', type2: 'gradient' }
 ];
 
 let currentPhraseIndex = 0;
@@ -511,6 +511,25 @@ let currentFullText = '';
 function getFullText(phrase, charCount) {
     const fullText = phrase.text + phrase.after + phrase.text2;
     const totalLength = fullText.length;
+    const firstPartEnd = phrase.text.length + phrase.after.length;
+    
+    // Se for gradiente, aplica ao texto completo
+    if (phrase.type === 'gradient' && phrase.type2 === 'gradient') {
+        const displayedText = fullText.substring(0, charCount);
+        
+        if (charCount >= totalLength) {
+            // Texto completo: primeira parte + quebra + segunda parte
+            return `<span class="text-gradient">${phrase.text}${phrase.after}</span><br><span class="text-gradient">${phrase.text2}</span>`;
+        } else if (charCount > firstPartEnd) {
+            // Passou da primeira parte + " e ", adiciona quebra
+            const firstPart = phrase.text + phrase.after;
+            const secondPart = phrase.text2.substring(0, charCount - firstPartEnd);
+            return `<span class="text-gradient">${firstPart}</span><br><span class="text-gradient">${secondPart}</span>`;
+        } else {
+            // Ainda na primeira parte
+            return `<span class="text-gradient">${displayedText}</span>`;
+        }
+    }
     
     // Se completou, retorna com todas as formatações
     if (charCount >= totalLength) {
