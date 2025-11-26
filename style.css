@@ -93,6 +93,50 @@ body {
     display: none;
 }
 
+@media (max-width: 768px) {
+    .header {
+        border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .logo-text {
+        display: block;
+    }
+
+    .logo-name {
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #032e69;
+        margin: 0;
+    }
+
+    .logo-subtitle {
+        font-size: 0.6875rem;
+        color: #032e69;
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .cta-button {
+        display: none !important;
+    }
+
+    .header-content {
+        gap: 0.75rem;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .menu-toggle {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+}
+
 .logo-name {
     font-weight: 600;
     line-height: 1.2;
@@ -258,22 +302,35 @@ body {
         background-image: url('aperto-mao.jpeg');
         background-size: cover;
         background-position: center;
+        min-height: 255px;
+        display: flex;
+        align-items: center;
     }
 
     .quote-section::before {
-        background: linear-gradient(135deg, rgba(16, 52, 85, 0.4), rgba(58, 121, 176, 0.4));
+        background: linear-gradient(135deg, #73a7ae, #00278b) !important;
+        opacity: 0.85;
+        z-index: 1;
+    }
+
+    .quote-section .container {
+        z-index: 2;
+        position: relative;
+        width: 100%;
     }
 
     .quote-content-desktop {
-        display: none;
+        display: none !important;
     }
 
     .quote-content-mobile {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         gap: 1rem;
         text-align: center;
         color: #ffffff;
+        position: relative;
+        z-index: 3;
     }
 
     .quote-content-mobile blockquote {
@@ -284,13 +341,15 @@ body {
         line-height: 1.6;
         margin-bottom: 0.5rem;
         font-family: 'Inter', sans-serif;
-        color: #ffffff;
+        color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .quote-content-mobile cite {
         font-size: 1rem;
         letter-spacing: 0.05em;
-        color: #ffffff;
+        color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -520,18 +579,33 @@ body {
 .testimonials .section-header {
     text-align: left;
     margin-left: 60px;
+    margin-bottom: 2rem;
 }
+
+.testimonials .section-header p {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
 @media (max-width: 768px) {
-    .testimonials .section-header{
+    .testimonials .section-header {
         margin-left: 0;
+        margin-bottom: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .testimonials .section-header h2 {
+        font-size: 1.5rem;
     }
 
     .testimonials .section-header p {
         text-align: left;
         margin-left: 0;
         margin-right: auto;
+        font-size: 0.9375rem;
     }
-
+}
 .carousel-wrapper {
     position: relative;
     max-width: 1400px;
@@ -566,8 +640,8 @@ body {
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 105px;
     background: linear-gradient(135deg, #d4feec 0%, #85aefe 100%);
     border-radius: 0.75rem;
     display: flex;
@@ -608,6 +682,14 @@ body {
     filter: none;
 }
 
+.service-icon-sonho {
+    position: relative;
+}
+
+.service-icon-sonho img {
+    filter: brightness(0) saturate(100%) invert(58%) sepia(95%) saturate(1352%) hue-rotate(188deg) brightness(105%) contrast(95%);
+}
+
 .service-card h3 {
     font-weight: 600;
     margin-bottom: 0.75rem;
@@ -622,12 +704,13 @@ body {
     line-height: 1.6;
     margin: 0;
     width: 100%;
+    max-width: 200px;
 }
 
 .carousel-btn {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     background: #124994;
     border: none;
@@ -799,23 +882,41 @@ body {
 }
 
 .quote-content blockquote {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 17px;
+    font-weight: 400;
     line-height: 1.6;
     color: hsl(var(--foreground));
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-style: italic;
 }
 
 .quote-content cite {
     display: block;
-    font-size: 1.125rem;
+    font-size: 14px;
     color: hsl(var(--muted-foreground));
+    letter-spacing: 0.1em;
+    font-style: normal !important;
+}
+
+/* Desktop Quote Styles */
+.quote-content-desktop blockquote {
+    font-size: 2rem;
+    font-weight: 600;
     font-style: italic;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    line-height: 1.5;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+}
+
+.quote-content-desktop cite {
+    display: block;
+    font-size: 1rem;
+    color: hsl(var(--muted-foreground));
+    letter-spacing: 0.2em;
+    font-style: normal !important;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 /* About Section */
@@ -860,11 +961,6 @@ body {
     color: #184c95;
 }
 
-@media (max-width: 768px) {
-    .section-badge {
-        font-size: 20px;
-    }
-
 .about-content h2 .text-primary {
     color: #032e69;
     font-weight: bold;
@@ -891,6 +987,12 @@ body {
     padding: 1rem;
     background: hsl(var(--muted) / 0.5);
     border-radius: var(--radius);
+    min-width: 0;
+}
+
+.credential-card > div:last-child {
+    flex: 1;
+    min-width: 0;
 }
 
 .credential-icon {
@@ -927,11 +1029,16 @@ body {
     font-weight: 600;
     font-size: 0.875rem;
     margin-bottom: 0.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .credential-card p {
     font-size: 0.75rem;
     color: hsl(var(--muted-foreground));
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
 }
 
 .partner-logos {
@@ -950,6 +1057,8 @@ body {
     gap: 1.5rem;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .logo-badge {
@@ -969,6 +1078,53 @@ body {
 
 .logo-img--large {
     max-height: 48px;
+}
+
+@media (max-width: 768px) {
+    .section-badge {
+        font-size: 20px;
+    }
+
+    .credentials {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .credential-card {
+        padding: 0.875rem;
+        gap: 0.625rem;
+        align-items: center;
+    }
+
+    .credential-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        min-width: 36px;
+    }
+
+    .primary-icon i,
+    .secondary-icon i {
+        width: 18px;
+        height: 18px;
+    }
+
+    .credential-card h4 {
+        font-size: 0.8125rem;
+        margin-bottom: 0.125rem;
+    }
+
+    .credential-card p {
+        font-size: 0.6875rem;
+        line-height: 1.4;
+    }
+
+    .logos-grid {
+        flex-wrap: nowrap;
+        gap: 0;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 /* Testimonials Section */
@@ -1020,6 +1176,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    width: 100%;
 }
 
 .testimonials-container {
@@ -1028,6 +1185,7 @@ body {
     gap: 1.5rem;
     flex: 1;
     width: 100%;
+    align-items: stretch;
 }
 
 .testimonial-card {
@@ -1041,6 +1199,7 @@ body {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
 }
 
 .testimonial-card.fade-out {
@@ -1068,6 +1227,8 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
 }
 
 .testimonial-header {
@@ -1124,6 +1285,8 @@ body {
     color: hsl(var(--foreground));
     margin: 0;
     flex: 1;
+    overflow-y: auto;
+    min-height: 0;
 }
 
 .testimonial-nav-btn {
@@ -1153,30 +1316,86 @@ body {
 }
 
 @media (max-width: 768px) {
+    .testimonials {
+        padding: 3rem 0;
+    }
+
     .testimonials-container {
         grid-template-columns: 1fr;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: stretch;
+        height: 350px;
+    }
+
+    .testimonial-card {
+        width: 100%;
+        position: relative;
+        height: 100%;
     }
 
     #testimonialCard2 {
-        display: none;
+        display: none !important;
     }
     
     .testimonials-wrapper {
         flex-direction: column;
+        padding: 0 1rem;
+        position: relative;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+        height: 350px;
+        overflow: hidden;
+    }
+
+    .testimonial-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .testimonial-content blockquote {
+        font-size: 0.9375rem;
+        line-height: 1.5;
+    }
+
+    .author-name {
+        font-size: 0.9375rem;
+    }
+
+    .testimonial-header-icon {
+        width: 28px;
+        height: 28px;
+        margin-left: 0.75rem;
+    }
+
+    .testimonial-header-icon span {
+        font-size: 0.6875rem;
     }
     
     .testimonial-nav-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+    }
+
+    .testimonial-nav-btn i {
+        width: 20px;
+        height: 20px;
     }
     
     .nav-btn-left {
-        left: -24px;
+        left: 0;
     }
     
     .nav-btn-right {
-        right: -24px;
+        right: 0;
     }
 
     .hero-image .image-placeholder,
@@ -1184,6 +1403,69 @@ body {
     .more-info-image .image-placeholder {
         border-radius: 1.5rem;
         padding: 1.5rem;
+    }
+
+    /* More Info Section Mobile Adjustments */
+    .more-info {
+        padding: 3rem 0;
+    }
+
+    .more-info-grid {
+        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .more-info-content {
+        display: contents;
+    }
+
+    .more-info-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        order: 1;
+    }
+
+    .more-info-image {
+        order: 2;
+        margin-bottom: 0;
+    }
+
+    .more-info-intro {
+        order: 3;
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+
+    .info-accordion {
+        order: 4;
+        gap: 0.625rem;
+    }
+
+    .info-accordion-item {
+        width: fit-content;
+        min-width: 200px;
+        max-width: 100%;
+    }
+
+    .info-accordion-header {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .info-item-title {
+        font-size: 0.9375rem;
+        letter-spacing: 1px;
+    }
+
+    .info-icon-circle {
+        width: 20px;
+        height: 20px;
+    }
+
+    .info-icon-circle i {
+        width: 12px;
+        height: 12px;
     }
 
     /* Services Section Mobile Adjustments */
@@ -1266,9 +1548,8 @@ body {
         color: #124994;
     }
 
-    .blockquote span{
+    .blockquote span {
         text-transform: uppercase;
-
     }
 
     .carousel-prev {
@@ -1280,16 +1561,21 @@ body {
     }
 
     .logo-badge {
-        flex: 0 0 45%;
+        flex: 1 1 0;
         justify-content: center;
+        padding: 0.25rem 0.5rem;
     }
 
     .logo-img {
-        max-height: 55px;
+        max-height: 40px;
+        width: auto;
+        height: auto;
     }
 
     .logo-img--large {
-        max-height: 70px;
+        max-height: 45px;
+        width: auto;
+        height: auto;
     }
 
     #testimonialCard2 {
@@ -1387,7 +1673,6 @@ body {
 .more-info-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -1414,12 +1699,13 @@ body {
 }
 
 .more-info-content h2 {
-    font-size: 20px;
+    font-size: 1.75rem;
     font-weight: 600;
     background: linear-gradient(90deg, #3e81b8, #c76b82);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-bottom: 1rem;
 }
 
 .more-info-content h2 .text-primary {
@@ -1434,7 +1720,7 @@ body {
     color: #0e3c7e;
     margin-bottom: 2rem;
     line-height: 1.6;
-    max-width: 400px;
+    max-width: 100%;
 }
 
 .more-info-intro strong {
@@ -1471,12 +1757,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 1.5rem;
+    padding: 0.875rem 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
     text-align: left;
     transition: var(--transition-smooth);
+    min-height: 48px;
 }
 
 .info-item-content {
@@ -1487,7 +1774,7 @@ body {
 }
 
 .info-item-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #032e69;
     letter-spacing: 2px;

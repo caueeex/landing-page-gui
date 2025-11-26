@@ -231,8 +231,17 @@ function renderTestimonials() {
     const card1 = document.getElementById('testimonialCard1');
     const card2 = document.getElementById('testimonialCard2');
     
-    renderTestimonialCard(card1, currentTestimonialIndex);
-    renderTestimonialCard(card2, currentTestimonialIndex + 1);
+    if (isMobile()) {
+        // Mobile: mostra apenas 1 card
+        renderTestimonialCard(card1, currentTestimonialIndex);
+        if (card2) {
+            card2.style.display = 'none';
+        }
+    } else {
+        // Desktop: mostra 2 cards
+        renderTestimonialCard(card1, currentTestimonialIndex);
+        renderTestimonialCard(card2, currentTestimonialIndex + 1);
+    }
 }
 
 function goToTestimonial(index) {
@@ -240,30 +249,58 @@ function goToTestimonial(index) {
     renderTestimonials();
 }
 
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
 function nextTestimonial() {
-    // Avança de 2 em 2, mas não passa do limite
-    if (currentTestimonialIndex + 2 < testimonials.length) {
-        currentTestimonialIndex += 2;
+    if (isMobile()) {
+        // Mobile: avança de 1 em 1
+        if (currentTestimonialIndex + 1 < testimonials.length) {
+            currentTestimonialIndex += 1;
+        } else {
+            currentTestimonialIndex = 0; // Volta ao início
+        }
     } else {
-        currentTestimonialIndex = 0; // Volta ao início
+        // Desktop: avança de 2 em 2
+        if (currentTestimonialIndex + 2 < testimonials.length) {
+            currentTestimonialIndex += 2;
+        } else {
+            currentTestimonialIndex = 0; // Volta ao início
+        }
     }
     renderTestimonials();
 }
 
 function prevTestimonial() {
-    // Retrocede de 2 em 2
-    if (currentTestimonialIndex - 2 >= 0) {
-        currentTestimonialIndex -= 2;
+    if (isMobile()) {
+        // Mobile: retrocede de 1 em 1
+        if (currentTestimonialIndex - 1 >= 0) {
+            currentTestimonialIndex -= 1;
+        } else {
+            // Vai para o último depoimento
+            currentTestimonialIndex = testimonials.length - 1;
+        }
     } else {
-        // Vai para o último par possível
-        const lastPair = Math.floor((testimonials.length - 1) / 2) * 2;
-        currentTestimonialIndex = lastPair;
+        // Desktop: retrocede de 2 em 2
+        if (currentTestimonialIndex - 2 >= 0) {
+            currentTestimonialIndex -= 2;
+        } else {
+            // Vai para o último par possível
+            const lastPair = Math.floor((testimonials.length - 1) / 2) * 2;
+            currentTestimonialIndex = lastPair;
+        }
     }
     renderTestimonials();
 }
 
 document.getElementById('testimonialPrev')?.addEventListener('click', prevTestimonial);
 document.getElementById('testimonialNext')?.addEventListener('click', nextTestimonial);
+
+// Atualiza quando a janela é redimensionada
+window.addEventListener('resize', () => {
+    renderTestimonials();
+});
 
 // Auto-advance testimonials
 setInterval(nextTestimonial, 7000);
