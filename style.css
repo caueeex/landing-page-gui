@@ -382,6 +382,11 @@ body {
     text-align: justify;
     text-align-last: start;
 }
+@media (max-width: 768px) {
+    .hero-title {
+        height: 210px;
+    }
+}
 
 .text-primary {
     color: hsl(var(--primary));
