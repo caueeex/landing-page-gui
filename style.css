@@ -263,7 +263,7 @@ body {
 
 .hero-grid {
     display: grid;
-    gap: 3rem;
+
     align-items: center;
 }
 
@@ -377,7 +377,6 @@ body {
     font-size: 2.5rem;
     font-weight: 500;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
     max-width: 77%;
     width: 100%;
     text-align: justify;
@@ -929,18 +928,50 @@ body {
 .about {
     padding: 5rem 0;
     background: hsl(var(--background));
+    overflow-x: hidden;
 }
 
 .about-grid {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 .about-image .image-placeholder {
     border-radius: 1.5rem;
+    padding: 0 !important;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: block;
+}
+
+.about-image .image-placeholder img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
 }
 
 .about-content {
@@ -1069,7 +1100,6 @@ body {
 
 .logo-badge {
     flex: 0 0 auto;
-    padding: 0.25rem 0.75rem;
     background: transparent;
     display: flex;
     align-items: center;
@@ -1087,8 +1117,59 @@ body {
 }
 
 @media (max-width: 768px) {
+    .about {
+        padding: 3rem 0;
+        overflow-x: hidden;
+    }
+
+    .about-grid {
+        gap: 2rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .about-image {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    .about-image .image-placeholder {
+        padding: 0;
+        border-radius: 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .about-image .image-placeholder img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 1rem;
+        box-sizing: border-box;
+        margin: 0;
+        object-fit: cover;
+    }
+
+    .about-content {
+        order: 2;
+    }
+
     .section-badge {
         font-size: 20px;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem;
     }
 
     .credentials {
@@ -1130,6 +1211,342 @@ body {
         gap: 0;
         justify-content: space-between;
         align-items: center;
+    }
+}
+
+/* Media query específica para resolução 375px */
+@media (min-width: 374px) and (max-width: 375px) {
+    .about .about-grid .about-image .image-placeholder img {
+        max-width: 89% !important;
+        width: 88% !important;
+    }
+}
+
+/* Media query específica para resolução 360px (360x740) */
+@media (min-width: 350px) and (max-width: 380px) {
+    .about .about-grid .about-image {
+        max-width: 96% !important;
+        width: 100% !important;
+    }
+    
+    .about .about-grid .about-image .image-placeholder {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .about .about-grid .about-image .image-placeholder img {
+        max-width: 95% !important;
+        width: 100% !important;
+    }
+}
+
+/* Media query específica para resolução 390px (390x844) */
+@media (min-width: 381px) and (max-width: 390px) {
+    .about .about-grid .about-image {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .about .about-grid .about-image .image-placeholder {
+        max-width: 97% !important;
+        width: 100% !important;
+    }
+    
+    .about .about-grid .about-image .image-placeholder img {
+        max-width: 91% !important;
+        width: 91% !important;
+    }
+}
+
+/* Media query específica para resolução 412px (412x915) */
+@media (min-width: 391px) and (max-width: 412px) {
+    .about-image {
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+    
+    .about-image .image-placeholder {
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+    
+    .about-image .image-placeholder img {
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+}
+
+/* Media query específica para resolução 414px */
+@media (min-width: 413px) and (max-width: 414px) {
+    .about .about-grid .about-image {
+        max-width: 94% !important;
+        width: 94% !important;
+    }
+    
+    .about .about-grid .about-image .image-placeholder {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .about .about-grid .about-image .image-placeholder img {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+/* Media query específica para resolução 430px (430x932) */
+@media (max-width: 430px) {
+    .about-image {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .about-image .image-placeholder {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .about-image .image-placeholder img {
+        max-width: 98% !important;
+        width: 100% !important;
+    }
+}
+
+/* Media query específica para resolução 434px */
+@media (min-width: 431px) and (max-width: 434px) {
+    .about .container {
+        padding: 0 1rem !important;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-grid {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Media query para resoluções entre 430px e 480px */
+@media (min-width: 431px) and (max-width: 480px) {
+    .about .container {
+        padding: 0 1rem !important;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-grid {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-image .image-placeholder {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-image .image-placeholder img {
+        width: 100%;
+        max-width: 86% !important;
+        box-sizing: border-box;
+        margin: 0;
+    }
+}
+
+/* Media query para celulares menores (iPhone SE, Galaxy S8+, etc.) */
+@media (max-width: 480px) {
+    .about {
+        padding: 2rem 0;
+        overflow-x: hidden;
+    }
+
+    .about .container {
+        padding: 0 1rem !important;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-grid {
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .about-image {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    .about-image .image-placeholder {
+        padding: 0;
+        border-radius: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        display: block;
+    }
+
+    .about-image .image-placeholder img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.75rem;
+        box-sizing: border-box;
+        margin: 0;
+        object-fit: cover;
+    }
+
+    .about-content {
+        order: 2;
+        padding: 0;
+    }
+
+    .section-badge {
+        font-size: 18px;
+    }
+
+    .about-content h2 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+    }
+
+    .about-text {
+        font-size: 0.9375rem;
+        max-width: 90%;
+    }
+
+    .credential-card {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .credential-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+
+    .primary-icon i,
+    .secondary-icon i {
+        width: 16px;
+        height: 16px;
+    }
+
+    .credential-card h4 {
+        font-size: 0.75rem;
+    }
+
+    .credential-card p {
+        font-size: 0.625rem;
+    }
+
+    .logo-img {
+        max-height: 36px;
+    }
+
+    .logo-img--large {
+        max-height: 40px;
+    }
+}
+
+/* Media query para celulares muito pequenos (iPhone SE, etc.) - abaixo de 350px */
+@media (max-width: 349px) {
+    .about {
+        padding: 1.5rem 0;
+        overflow-x: hidden;
+    }
+
+    .about .container {
+        padding: 0 1rem !important;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-grid {
+        gap: 1.25rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Media query para resoluções abaixo de 350px */
+@media (max-width: 349px) {
+    .about-image .image-placeholder {
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-image .image-placeholder img {
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .section-badge {
+        font-size: 16px;
+    }
+
+    .about-content h2 {
+        font-size: 1.125rem;
+    }
+
+    .about-text {
+        font-size: 0.875rem;
     }
 }
 
@@ -1405,7 +1822,6 @@ body {
     }
 
     .hero-image .image-placeholder,
-    .about-image .image-placeholder,
     .more-info-image .image-placeholder {
         border-radius: 1.5rem;
         padding: 1.5rem;
@@ -1569,7 +1985,6 @@ body {
     .logo-badge {
         flex: 1 1 0;
         justify-content: center;
-        padding: 0.25rem 0.5rem;
     }
 
     .logo-img {
@@ -2270,6 +2685,24 @@ body {
 
     .about-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-image .image-placeholder {
+        padding: 0;
+        aspect-ratio: 4/5;
+        overflow: hidden;
+    }
+
+    .about-image .image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .credentials {
