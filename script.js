@@ -558,7 +558,7 @@ const typewriterPhrases = [
     { text: 'humildade', type: 'gradient', after: ' e ', text2: 'amor próprio.', type2: 'gradient' },
     { text: 'coragem', type: 'gradient', after: ' e ', text2: 'autocuidado.', type2: 'gradient' },
     { text: 'sabedoria', type: 'gradient', after: ' e ', text2: 'clareza.', type2: 'gradient' },
-    { text: 'força', type: 'gradient', after: ' e ', text2: 'transformação.', type2: 'gradient' },
+    { text: 'força', type: 'gradient', after: ' e ', text2: 'mudança.', type2: 'gradient' },
     { text: 'resiliência', type: 'gradient', after: ' e ', text2: 'bem-estar.', type2: 'gradient' },
     { text: 'paz', type: 'gradient', after: ' e ', text2: 'equilíbrio.', type2: 'gradient' }
 ];
