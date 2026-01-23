@@ -2405,7 +2405,7 @@ body {
     }
 
     .carousel-cta-wrapper {
-        margin-top: 2rem;
+        margin-top: 1rem;
         display: flex !important; /* Força exibição no mobile */
     }
 
