@@ -365,6 +365,7 @@ body {
     .hero-title {
         height: 140px !important;
         font-size: 27px !important;
+        width: 69% !important;
     }
     
     .btn-outline {
@@ -403,6 +404,8 @@ body {
         margin-top: 10px !important;
         width: auto;
         text-wrap: nowrap;
+        margin-top: -22px !important;
+        margin-bottom: 10px !important;
     }
     
     .btn-hero {
@@ -414,7 +417,7 @@ body {
     .hero-buttons {
         align-items: center;
         width: 100%;
-        padding: 0 1rem;
+        margin-left: 36px !important;
     }
     
     /* Botão Agende Sua Consulta - Mobile */
@@ -445,6 +448,7 @@ body {
         font-size: 1.5rem;
         max-width: 100%;
         height: auto;
+
     }
     
     .btn-outline {
@@ -591,6 +595,8 @@ body {
 @media (max-width: 768px) {
     .hero-title {
         height: 250px;
+        max-width: 73% !important;
+        font-size: 2.3rem !important;
     }
 }
 
