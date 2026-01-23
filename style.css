@@ -2028,14 +2028,14 @@ body {
 }
 
 .testimonials .section-header h2 {
-    background: linear-gradient(90deg, #9a9a9a, #d37189);
+    background: linear-gradient(110deg, #7b7676, #ff4875);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .testimonials .section-header h2 .text-primary {
-    background: linear-gradient(90deg, #9a9a9a, #d37189);
+    background: linear-gradient(110deg, #7b7676, #ff4875);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -2162,7 +2162,7 @@ body {
 }
 
 .testimonial-nav-btn {
-    background: hsl(var(--primary));
+    background: hsl(210deg 70% 55% / 65%);;
     border: none;
     border-radius: 50%;
     width: 48px;
@@ -2178,7 +2178,7 @@ body {
 }
 
 .testimonial-nav-btn:hover {
-    background: hsl(var(--primary) / 0.9);
+    background: hsl(210deg 70% 55% / 65%);
     transform: scale(1.1);
 }
 
@@ -2252,9 +2252,10 @@ body {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         z-index: 10;
+        left: 94%;
     }
 
     .testimonial-nav-btn i {
@@ -2263,7 +2264,7 @@ body {
     }
     
     .nav-btn-left {
-        left: 0;
+        left: -7px;
     }
     
     .nav-btn-right {
