@@ -155,6 +155,50 @@ const servicesCarousel = new Carousel(
     '#servicesNext'
 );
 
+// Service Card Modal Functions
+function openServiceCardModal(card) {
+    const modal = document.getElementById('serviceCardModal');
+    const modalTitle = document.getElementById('serviceCardModalTitle');
+    const modalBody = document.getElementById('serviceCardModalBody');
+    
+    if (modal && modalTitle && modalBody) {
+        const title = card.getAttribute('data-service-title');
+        const description = card.getAttribute('data-service-description');
+        
+        modalTitle.textContent = title;
+        modalBody.innerHTML = `<p>${description}</p>`;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lucide.createIcons();
+    }
+}
+
+function closeServiceCardModal() {
+    const modal = document.getElementById('serviceCardModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Adicionar event listeners aos cards de serviço em mobile
+function initServiceCardClicks() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        // Adicionar listener que verifica se é mobile no momento do clique
+        card.addEventListener('click', function(e) {
+            // Verificar se é mobile no momento do clique
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                e.stopPropagation();
+                openServiceCardModal(this);
+            }
+        });
+    });
+}
+
 // Testimonials
 const testimonials = [
     {
@@ -659,6 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTestimonials();
     renderFAQ();
     renderInfoAccordion();
+    initServiceCardClicks();
     lucide.createIcons();
     
     // Inicializar typewriter
@@ -672,10 +717,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') {
             const infoModal = document.getElementById('infoModal');
             const approachModal = document.getElementById('approachModal');
+            const serviceCardModal = document.getElementById('serviceCardModal');
             if (infoModal?.classList.contains('active')) {
                 closeInfoModal();
             } else if (approachModal?.classList.contains('active')) {
                 closeApproachModal();
+            } else if (serviceCardModal?.classList.contains('active')) {
+                closeServiceCardModal();
             }
         }
     });

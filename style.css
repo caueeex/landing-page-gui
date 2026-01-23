@@ -907,7 +907,6 @@ body {
     border-radius: var(--radius);
     padding: 2rem 1.5rem 1.5rem;
     text-align: center;
-    cursor: pointer;
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
@@ -985,6 +984,54 @@ body {
     margin: 0;
     width: 100%;
     max-width: 200px;
+}
+
+/* Ocultar descrição em mobile */
+@media (max-width: 768px) {
+    .service-card-description {
+        display: none;
+    }
+    
+    .service-card {
+        cursor: pointer;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Estilos do Modal de Service Card */
+.service-card-modal-content {
+    text-align: center;
+}
+
+.service-card-modal-content .modal-title {
+    text-align: center;
+    color: #2762b4;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-card-modal-content .modal-body {
+    text-align: center;
+    color: #114389;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .service-card-modal-content {
+        max-width: 90%;
+    }
+    
+    .service-card-modal-content .modal-title {
+        font-size: 1.25rem;
+    }
+    
+    .service-card-modal-content .modal-body {
+        font-size: 0.9375rem;
+    }
 }
 
 .carousel-btn {
@@ -1488,6 +1535,7 @@ body {
 
     .section-badge {
         font-size: 20px;
+        margin-bottom: -20px;
     }
 
     .about-content h2 {
@@ -2167,7 +2215,6 @@ body {
         margin: 0 auto;
         width: 100%;
         max-width: 100%;
-        padding: 0.75rem;
         box-sizing: border-box;
         overflow: hidden;
         display: flex;
