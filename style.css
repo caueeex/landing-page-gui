@@ -161,6 +161,11 @@ body {
         display: none !important;
     }
 
+    /* Força exibição do botão do carrossel no mobile */
+    .carousel-cta-button {
+        display: inline-flex !important;
+    }
+
     .logo {
         flex: 1;
         min-width: 0;
@@ -206,6 +211,11 @@ body {
 
     .cta-button {
         display: none !important;
+    }
+
+    /* Força exibição do botão do carrossel no tablet */
+    .carousel-cta-button {
+        display: inline-flex !important;
     }
 
     .logo {
@@ -1097,6 +1107,50 @@ body {
 
 .carousel-next {
     right: -24px;
+}
+
+/* Carousel Intro Text */
+.carousel-intro-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #032e69;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+/* Carousel CTA Wrapper */
+.carousel-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.carousel-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #d4feec, #95b5f3);
+    color: #032e69;
+    border: none;
+    padding: 0.625rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+}
+
+.carousel-cta-button:hover {
+    background: hsl(var(--secondary) / 0.9);
+    transform: translateY(-1px);
 }
 
 /* Approach Section */
@@ -2343,6 +2397,23 @@ body {
         margin-bottom: 2rem;
     }
 
+    .carousel-intro-text {
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .carousel-cta-wrapper {
+        margin-top: 2rem;
+        display: flex !important; /* Força exibição no mobile */
+    }
+
+    .carousel-cta-button {
+        font-size: 0.8125rem;
+        padding: 0.5rem 1.25rem;
+        display: inline-flex !important; /* Força exibição no mobile */
+    }
+
     .section-header h2 {
         font-size: 1.5rem;
         text-align: start;
@@ -3376,6 +3447,10 @@ body {
     
     .section-header p {
         font-size: 1.25rem;
+    }
+
+    .carousel-intro-text {
+        font-size: 1.75rem;
     }
     
     .testimonials-container {
