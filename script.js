@@ -72,6 +72,13 @@ class Carousel {
         this.currentIndex = 0;
         this.autoplayInterval = null;
         
+        // Drag properties
+        this.isDragging = false;
+        this.startX = 0;
+        this.currentX = 0;
+        this.scrollLeft = 0;
+        this.dragOffset = 0;
+        
         if (this.track && this.prevBtn && this.nextBtn) {
             this.init();
         }
@@ -83,10 +90,103 @@ class Carousel {
         this.nextBtn.addEventListener('click', () => this.next());
         window.addEventListener('resize', () => this.updateCardsPerView());
         
+        // Drag functionality
+        this.initDrag();
+        
         // Auto-advance every 5 seconds
         this.startAutoplay();
         this.container.addEventListener('mouseenter', () => this.stopAutoplay());
         this.container.addEventListener('mouseleave', () => this.startAutoplay());
+    }
+    
+    initDrag() {
+        // Mouse events
+        this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
+        this.track.addEventListener('mousemove', (e) => this.handleDragMove(e));
+        this.track.addEventListener('mouseup', () => this.handleDragEnd());
+        this.track.addEventListener('mouseleave', () => this.handleDragEnd());
+        
+        // Touch events - touchmove needs to be non-passive to allow preventDefault
+        this.track.addEventListener('touchstart', (e) => this.handleDragStart(e), { passive: true });
+        this.track.addEventListener('touchmove', (e) => this.handleDragMove(e), { passive: false });
+        this.track.addEventListener('touchend', () => this.handleDragEnd());
+        
+        // Prevent text selection while dragging
+        this.track.addEventListener('selectstart', (e) => {
+            if (this.isDragging) {
+                e.preventDefault();
+            }
+        });
+    }
+    
+    handleDragStart(e) {
+        this.isDragging = true;
+        this.track.classList.add('dragging');
+        
+        // Get initial position
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        this.startX = clientX;
+        
+        // Get current scroll position
+        const cardWidth = this.track.children[0]?.offsetWidth || 0;
+        const gap = 24; // 1.5rem
+        this.scrollLeft = -(this.currentIndex * (cardWidth + gap));
+        
+        // Stop autoplay when dragging
+        this.stopAutoplay();
+    }
+    
+    handleDragMove(e) {
+        if (!this.isDragging) return;
+        
+        e.preventDefault();
+        
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        this.currentX = clientX;
+        this.dragOffset = this.currentX - this.startX;
+        
+        // Update position with drag offset
+        const newPosition = this.scrollLeft + this.dragOffset;
+        this.track.style.transform = `translateX(${newPosition}px)`;
+        this.track.style.transition = 'none'; // Disable transition during drag
+    }
+    
+    handleDragEnd() {
+        if (!this.isDragging) return;
+        
+        this.isDragging = false;
+        this.track.classList.remove('dragging');
+        this.track.style.transition = 'transform 0.5s ease'; // Re-enable transition
+        
+        // Calculate which card to snap to
+        const cardWidth = this.track.children[0]?.offsetWidth || 0;
+        const gap = 24; // 1.5rem
+        const cardWidthWithGap = cardWidth + gap;
+        
+        // Determine direction and threshold (30% of card width or minimum 50px)
+        const threshold = Math.max(cardWidthWithGap * 0.3, 50);
+        
+        if (Math.abs(this.dragOffset) > threshold) {
+            // Move to next/prev card
+            if (this.dragOffset < 0) {
+                // Dragged left, go to next
+                this.next();
+            } else {
+                // Dragged right, go to prev
+                this.prev();
+            }
+        } else {
+            // Snap back to current position
+            this.updatePosition();
+        }
+        
+        // Reset drag values
+        this.dragOffset = 0;
+        this.startX = 0;
+        this.currentX = 0;
+        
+        // Restart autoplay
+        this.startAutoplay();
     }
     
     updateCardsPerView() {
@@ -105,13 +205,15 @@ class Carousel {
     }
     
     updatePosition() {
+        if (!this.track.children[0]) return;
+        
         const cardWidth = this.track.children[0].offsetWidth;
         const gap = 24; // 1.5rem
         const offset = -(this.currentIndex * (cardWidth + gap));
         this.track.style.transform = `translateX(${offset}px)`;
         
-        this.prevBtn.disabled = this.currentIndex === 0;
-        this.nextBtn.disabled = this.currentIndex >= this.maxIndex;
+        if (this.prevBtn) this.prevBtn.disabled = this.currentIndex === 0;
+        if (this.nextBtn) this.nextBtn.disabled = this.currentIndex >= this.maxIndex;
     }
     
     next() {
