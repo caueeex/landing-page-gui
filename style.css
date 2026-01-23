@@ -2234,9 +2234,14 @@ body {
 
     /* More Info Section Mobile Adjustments */
     .more-info {
-        padding: 3rem 0;
+        padding: 3rem 0 !important;
     }
 
+    .more-info-content h2{
+        width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    }
     .more-info-grid {
         gap: 1.5rem;
         display: grid;
@@ -2273,6 +2278,7 @@ body {
         gap: 0.625rem;
         margin-left: 17px;
         max-width: 90%;
+        margin-top: -25px;
     }
 
     .info-accordion-item {
@@ -2282,12 +2288,14 @@ body {
     }
 
     .info-accordion-header {
-        padding: 0.875rem 1.25rem;
+        padding: 10px 24px !important;
+        min-height: 20px !important;
     }
 
     .info-item-title {
-        font-size: 0.9375rem;
-        letter-spacing: 1px;
+        font-size: 16px !important;
+        letter-spacing: 1px !important;
+        text-wrap: nowrap !important;
     }
 
     .info-icon-circle {
@@ -2692,10 +2700,10 @@ body {
     text-align: center;
     margin: 0 auto;
     font-size: 20px;
+    line-height: 23px;
 }
 
 .faq .section-header p .highlight-text {
-    text-decoration: underline;
     font-style: italic;
     font-weight: bold;
 }
@@ -2709,7 +2717,7 @@ body {
 }
 
 .accordion-item {
-    background: linear-gradient(90deg, #46a7b4, #1a43ad);
+    background: linear-gradient(161deg, #488e98, #1a43ad);
     backdrop-filter: blur(8px);
     border-radius: var(--radius);
     padding: 10px;
@@ -3278,6 +3286,12 @@ body {
 @media (max-width: 768px) {
     .modal-content {
         max-height: 95vh;
+    }
+    .faq .section-header h2{
+        text-align: inherit;
+    }
+    .faq{
+        padding: 3rem 0 !important;
     }
     
     .modal-title {
