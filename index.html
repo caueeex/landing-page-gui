@@ -206,8 +206,10 @@
                 <nav class="nav-desktop">
                     <button onclick="scrollToSection('hero')">INÍCIO</button>
                     <button onclick="scrollToSection('services')">ESPECIALIDADES</button>
-                    <button onclick="scrollToSection('about')">IMPACTOS</button>
+                    <button onclick="scrollToSection('about')">SOBRE MIM</button>
                     <button onclick="scrollToSection('testimonials')">DEPOIMENTOS</button>
+                    <button onclick="scrollToSection('more-info')">INFORMAÇÕES</button>
+                    <button onclick="scrollToSection('faq')">FAQ</button>
                 </nav>
 
                 <button class="cta-button" onclick="scrollToSection('contact')">
@@ -223,8 +225,10 @@
                 <nav>
                     <button onclick="scrollToSection('hero')">INÍCIO</button>
                     <button onclick="scrollToSection('services')">ESPECIALIDADES</button>
-                    <button onclick="scrollToSection('about')">IMPACTOS</button>
+                    <button onclick="scrollToSection('about')">SOBRE MIM</button>
                     <button onclick="scrollToSection('testimonials')">DEPOIMENTOS</button>
+                    <button onclick="scrollToSection('more-info')">INFORMAÇÕES</button>
+                    <button onclick="scrollToSection('faq')">FAQ</button>
                     <button class="cta-button" onclick="scrollToSection('contact')">AGENDE SUA CONSULTA</button>
                 </nav>
             </div>
@@ -503,6 +507,18 @@
             </div>
         </section>
 
+        <!-- CTA entre Especialidades e Depoimentos -->
+        <div class="cta-between-sections">
+            <div class="container">
+                <div class="cta-between-sections-inner">
+                    <button class="cta-button carousel-cta-button" onclick="scrollToSection('contact')">
+                        <img src="icon-whatsapp.png" alt="WhatsApp" class="cta-icon">
+                        AGENDE SUA CONSULTA
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Approach Section -->
         <!-- <section id="approach" class="approach-section">
             <div class="container">
@@ -654,6 +670,18 @@
             </div>
         </section>
 
+        <!-- CTA entre Informações e FAQ -->
+        <div class="cta-between-sections">
+            <div class="container">
+                <div class="cta-between-sections-inner">
+                    <button class="cta-button carousel-cta-button" onclick="scrollToSection('contact')">
+                        <img src="icon-whatsapp.png" alt="WhatsApp" class="cta-icon">
+                        AGENDE SUA CONSULTA
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Info Modal -->
         <div id="infoModal" class="modal">
             <div class="modal-overlay" onclick="closeInfoModal()"></div>
@@ -679,7 +707,7 @@
         </div>
 
         <!-- FAQ Section -->
-        <section class="faq">
+        <section id="faq" class="faq">
             <div class="container">
                 <div class="section-header">
                     <h2>Perguntas <span class="text-secondary">Frequentes</span></h2>
@@ -786,6 +814,8 @@
                         <li><a href="#services">Especialidades</a></li>
                         <li><a href="#about">Sobre mim</a></li>
                         <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#more-info">Informações</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
@@ -849,6 +879,7 @@
         </div>
     </div>
 
+    <script src="carousel.js"></script>
     <script src="script.js"></script>
     <script>
         // Initialize Lucide icons

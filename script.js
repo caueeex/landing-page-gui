@@ -62,323 +62,6 @@ document.getElementById('menuToggle')?.addEventListener('click', () => {
     lucide.createIcons();
 });
 
-// Services Carousel
-class Carousel {
-    constructor(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector) {
-        this.container = document.querySelector(containerSelector);
-        this.track = document.querySelector(trackSelector);
-        this.prevBtn = document.querySelector(prevBtnSelector);
-        this.nextBtn = document.querySelector(nextBtnSelector);
-        this.currentIndex = 0;
-        this.autoplayInterval = null;
-        
-        // Drag properties
-        this.isDragging = false;
-        this.hasMoved = false;
-        this.startX = 0;
-        this.currentX = 0;
-        this.scrollLeft = 0;
-        this.dragOffset = 0;
-        this.startY = 0;
-        this.startTime = 0;
-        
-        if (this.track && this.prevBtn && this.nextBtn) {
-            this.init();
-        }
-    }
-    
-    init() {
-        this.updateCardsPerView();
-        this.prevBtn.addEventListener('click', () => this.prev());
-        this.nextBtn.addEventListener('click', () => this.next());
-        window.addEventListener('resize', () => this.updateCardsPerView());
-        
-        // Drag functionality
-        this.initDrag();
-        
-        // Auto-advance every 5 seconds
-        this.startAutoplay();
-        this.container.addEventListener('mouseenter', () => this.stopAutoplay());
-        this.container.addEventListener('mouseleave', () => this.startAutoplay());
-    }
-    
-    initDrag() {
-        // Mouse events
-        this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
-        this.track.addEventListener('mousemove', (e) => this.handleDragMove(e));
-        this.track.addEventListener('mouseup', () => this.handleDragEnd());
-        this.track.addEventListener('mouseleave', () => this.handleDragEnd());
-        
-        // Touch events - touchmove needs to be non-passive to allow preventDefault
-        this.track.addEventListener('touchstart', (e) => this.handleDragStart(e), { passive: true });
-        this.track.addEventListener('touchmove', (e) => this.handleDragMove(e), { passive: false });
-        this.track.addEventListener('touchend', () => this.handleDragEnd());
-        
-        // Prevent text selection while dragging
-        this.track.addEventListener('selectstart', (e) => {
-            if (this.isDragging) {
-                e.preventDefault();
-            }
-        });
-    }
-    
-    handleDragStart(e) {
-        // Se tocou/clicou em um card, não iniciar drag (deixar o card processar)
-        const target = e.target;
-        const card = target.closest ? target.closest('.service-card') : null;
-        if (card) {
-            // Se for mobile, não iniciar drag - deixar o card processar
-            if (window.innerWidth <= 768) {
-                return;
-            }
-        }
-        
-        // Get initial position
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        
-        this.startX = clientX;
-        this.startY = clientY;
-        this.startTime = Date.now();
-        this.hasMoved = false;
-        
-        // Get current scroll position
-        const cardWidth = this.track.children[0]?.offsetWidth || 0;
-        const gap = 24; // 1.5rem
-        this.scrollLeft = -(this.currentIndex * (cardWidth + gap));
-    }
-    
-    handleDragMove(e) {
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        
-        // Calculate movement
-        const deltaX = Math.abs(clientX - this.startX);
-        const deltaY = Math.abs(clientY - this.startY);
-        
-        // Only start dragging if horizontal movement is significant and greater than vertical
-        if (!this.isDragging && deltaX > 10 && deltaX > deltaY) {
-            this.isDragging = true;
-            this.track.classList.add('dragging');
-            this.stopAutoplay();
-        }
-        
-        if (this.isDragging) {
-            e.preventDefault();
-            
-            this.currentX = clientX;
-            this.dragOffset = this.currentX - this.startX;
-            this.hasMoved = true;
-            
-            // Update position with drag offset
-            const newPosition = this.scrollLeft + this.dragOffset;
-            this.track.style.transform = `translateX(${newPosition}px)`;
-            this.track.style.transition = 'none'; // Disable transition during drag
-        }
-    }
-    
-    handleDragEnd() {
-        if (this.isDragging) {
-            this.track.classList.remove('dragging');
-            this.track.style.transition = 'transform 0.5s ease'; // Re-enable transition
-            
-            // Calculate which card to snap to
-            const cardWidth = this.track.children[0]?.offsetWidth || 0;
-            const gap = 24; // 1.5rem
-            const cardWidthWithGap = cardWidth + gap;
-            
-            // Determine direction and threshold (30% of card width or minimum 50px)
-            const threshold = Math.max(cardWidthWithGap * 0.3, 50);
-            
-            if (Math.abs(this.dragOffset) > threshold) {
-                // Move to next/prev card
-                if (this.dragOffset < 0) {
-                    // Dragged left, go to next
-                    this.next();
-                } else {
-                    // Dragged right, go to prev
-                    this.prev();
-                }
-            } else {
-                // Snap back to current position
-                this.updatePosition();
-            }
-        }
-        
-        // Reset drag values
-        this.isDragging = false;
-        this.hasMoved = false;
-        this.dragOffset = 0;
-        this.startX = 0;
-        this.currentX = 0;
-        this.startY = 0;
-        this.startTime = 0;
-        
-        // Restart autoplay
-        this.startAutoplay();
-    }
-    
-    updateCardsPerView() {
-        const width = window.innerWidth;
-        if (width >= 1280) {
-            this.cardsPerView = 4;
-        } else if (width >= 1024) {
-            this.cardsPerView = 3;
-        } else if (width >= 768) {
-            this.cardsPerView = 2;
-        } else {
-            this.cardsPerView = 1;
-        }
-        this.maxIndex = Math.max(0, this.track.children.length - this.cardsPerView);
-        this.updatePosition();
-    }
-    
-    updatePosition() {
-        if (!this.track.children[0]) return;
-        
-        const cardWidth = this.track.children[0].offsetWidth;
-        const gap = 24; // 1.5rem
-        const offset = -(this.currentIndex * (cardWidth + gap));
-        this.track.style.transform = `translateX(${offset}px)`;
-        
-        if (this.prevBtn) this.prevBtn.disabled = this.currentIndex === 0;
-        if (this.nextBtn) this.nextBtn.disabled = this.currentIndex >= this.maxIndex;
-    }
-    
-    next() {
-        if (this.currentIndex < this.maxIndex) {
-            this.currentIndex++;
-            this.updatePosition();
-        }
-    }
-    
-    prev() {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-            this.updatePosition();
-        }
-    }
-    
-    startAutoplay() {
-        this.autoplayInterval = setInterval(() => {
-            if (this.currentIndex >= this.maxIndex) {
-                this.currentIndex = 0;
-            } else {
-                this.currentIndex++;
-            }
-            this.updatePosition();
-        }, 5000);
-    }
-    
-    stopAutoplay() {
-        if (this.autoplayInterval) {
-            clearInterval(this.autoplayInterval);
-            this.autoplayInterval = null;
-        }
-    }
-}
-
-// Initialize Services Carousel
-const servicesCarousel = new Carousel(
-    '#servicesCarousel',
-    '#servicesTrack',
-    '#servicesPrev',
-    '#servicesNext'
-);
-
-// Service Card Modal Functions
-function openServiceCardModal(card) {
-    const modal = document.getElementById('serviceCardModal');
-    const modalTitle = document.getElementById('serviceCardModalTitle');
-    const modalBody = document.getElementById('serviceCardModalBody');
-    
-    if (modal && modalTitle && modalBody) {
-        const title = card.getAttribute('data-service-title');
-        const description = card.getAttribute('data-service-description');
-        
-        modalTitle.textContent = title;
-        modalBody.innerHTML = `<p>${description}</p>`;
-        
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        lucide.createIcons();
-    }
-}
-
-function closeServiceCardModal() {
-    const modal = document.getElementById('serviceCardModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
-// Adicionar event listeners aos cards de serviço em mobile
-function initServiceCardClicks() {
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let touchStartTime = 0;
-        let hasMoved = false;
-        let cardTouched = false;
-        
-        // Touch events for mobile - usar capture phase para processar antes do track
-        card.addEventListener('touchstart', function(e) {
-            cardTouched = true;
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-            touchStartTime = Date.now();
-            hasMoved = false;
-        }, { passive: true, capture: true });
-        
-        card.addEventListener('touchmove', function(e) {
-            const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
-            const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
-            
-            // Se moveu mais de 10px, considera como movimento (arrasto)
-            if (deltaX > 10 || deltaY > 10) {
-                hasMoved = true;
-                cardTouched = false; // Se moveu, não é um toque simples
-            }
-        }, { passive: true, capture: true });
-        
-        card.addEventListener('touchend', function(e) {
-            const touchDuration = Date.now() - touchStartTime;
-            const deltaX = Math.abs(e.changedTouches[0].clientX - touchStartX);
-            const deltaY = Math.abs(e.changedTouches[0].clientY - touchStartY);
-            
-            // Verificar se é mobile e se foi um toque simples (não arrastou)
-            const isSimpleTouch = !hasMoved && deltaX < 10 && deltaY < 10 && touchDuration < 300;
-            
-            if (window.innerWidth <= 768 && isSimpleTouch && cardTouched) {
-                e.preventDefault();
-                e.stopPropagation();
-                // Garantir que o modal abra
-                setTimeout(() => {
-                    if (!servicesCarousel.isDragging) {
-                        openServiceCardModal(this);
-                    }
-                }, 10);
-            }
-            
-            // Reset
-            cardTouched = false;
-            hasMoved = false;
-        }, { capture: true });
-        
-        // Click event for desktop (fallback)
-        card.addEventListener('click', function(e) {
-            // Verificar se é desktop
-            if (window.innerWidth > 768) {
-                // Desktop behavior (if needed)
-                return;
-            }
-        });
-    });
-}
-
 // Testimonials
 const testimonials = [
     {
@@ -557,63 +240,63 @@ setInterval(nextTestimonial, 7000);
 const faqs = [
     {
         question: "Como saber se preciso de terapia?",
-        answer: "Quando suas emoções, pensamentos ou comportamentos começam a limitar sua vida, quando você se sente repetindo padrões que não consegue mudar sozinho ou simplesmente quer se conhecer melhor, a terapia pode ser o espaço ideal."
+        answer: "A psicoterapia é indicada para qualquer pessoa que queira viver melhor, com mais clareza, equilíbrio emocional e controle sobre a própria vida. Ela é especialmente eficaz para dificuldades nos relacionamentos, sensação de vazio ou falta de direção, ansiedade persistente, estresse constante, baixa autoestima, padrões emocionais repetitivos e tomada de decisões. É uma das ferramentas mais eficientes para mudança real, prática e sustentável."
     },
     {
         question: "E se eu não souber o que dizer na sessão?",
-        answer: "Não tem problema. O processo é conduzido com perguntas e acolhimento. Às vezes, o silêncio inicial faz parte e já revela muito sobre o que você está vivendo."
+        answer: "Não se preocupe! Isso é completamente normal. O processo é conduzido com perguntas e acolhimento incondicional. Você pode ter muito ou até nada a dizer. Parte do meu trabalho é ajudar a organizar pensamentos, emoções e experiências, mesmo quando ainda não estão claros para você."
     },
     {
         question: "O que eu devo esperar das primeiras sessões?",
-        answer: "As primeiras sessões servem para entender sua história, levantar objetivos e construir uma base de confiança. É um momento para alinhar expectativas e definir o melhor caminho terapêutico para você."
+        answer: "As primeiras sessões são voltadas para entender sua história, seu momento atual e o que você deseja transformar. Vamos conversar sobre suas dificuldades, objetivos e expectativas, no seu ritmo, sem julgamentos. É o momento de alinhar expectativas e definir o melhor caminho terapêutico para você."
     },
     {
         question: "E se eu não me identificar com o psicólogo?",
-        answer: "A relação terapêutica precisa fazer sentido para ambos. Caso não haja identificação, conversamos abertamente sobre isso e indico outro profissional que possa atender melhor ao seu momento."
+        answer: "Sem problemas ou constrangimento! Isso é algo totalmente comum. A relação terapêutica precisa fazer sentido para ambos. Caso não haja identificação comigo ou com minha abordagem, podemos conversar abertamente sobre isso ou simplesmente não remarcarmos uma próxima consulta."
     },
     {
         question: "E se eu me sentir desconfortável e quiser parar?",
-        answer: "Você tem total liberdade para falar sobre qualquer desconforto, ajustar o processo ou interrompê-lo. O objetivo é que você se sinta seguro e respeitado durante todo o percurso."
+        answer: "Você tem total liberdade para falar sobre qualquer desconforto, ajustar o processo ou interrompê-lo a qualquer momento. É crucial que você se sinta seguro e à vontade durante as sessões, então pode sugerir mudanças no tratamento sempre que quiser. A psicoterapia é um trabalho em conjunto que envolve adaptação das duas partes."
     },
     {
         question: "Como a psicoterapia ajuda na prática?",
-        answer: "A terapia amplia sua consciência sobre padrões emocionais, oferece ferramentas para lidar com desafios diários e ajuda a construir respostas mais maduras e coerentes com quem você é."
+        answer: "O processo da psicoterapia reflete naturalmente em uma reestruturação neural, ou seja, todo nosso sistema interno que define como percebemos e reagimos aos estímulos do mundo. Na prática, isso se traduz no desenvolvimento de novas rotas de pensamento, maior regulação emocional e na quebra de comportamentos automáticos que antes eram limitantes. Através do autoconhecimento e da análise técnica, você deixa de apenas reagir às circunstâncias e passa a agir com consciência e autonomia."
     },
     {
         question: "Leva muito tempo pra começar a sentir resultados?",
-        answer: "Cada pessoa tem um ritmo, mas muitas percebem mudanças já nas primeiras semanas, seja pelo alívio de ser ouvido ou por novas perspectivas que surgem nas conversas."
+        answer: "Alívios pontuais geralmente surgem desde a primeira sessão, mas mudanças estruturais na personalidade e no comportamento exigem consistência e tempo de maturação. O processo é único para cada pessoa e depende da complexidade da demanda e do seu engajamento. Com um trabalho bem estruturado e consistente, independentemente das suas dificuldades, obter resultados práticos é inevitável."
     },
     {
         question: "E se eu não tiver dinheiro pra fazer toda semana?",
-        answer: "Dialogamos sobre frequência e valores com transparência. Podemos ajustar a frequência temporariamente ou montar um plano que caiba no seu orçamento sem comprometer sua evolução."
+        answer: "A regularidade é fundamental para o progresso, mas a realidade financeira deve ser considerada para que a terapia não se torne mais um fator de estresse. Podemos avaliar e ajustar a frequência das sessões, caso necessário. Além disso, ofereço pacotes de sessões com diferentes descontos."
     },
     {
         question: "Qual a diferença entre psicólogo, psiquiatra e terapeuta?",
-        answer: "Psicólogo trabalha com processos emocionais por meio da fala, psiquiatra é médico e pode prescrever medicação, e terapeuta é um termo mais amplo que engloba diferentes abordagens de cuidado."
+        answer: "Enquanto o psiquiatra foca na parte biológica e orgânica, utilizando medicamentos para ajustar desequilíbrios químicos no cérebro, o psicólogo foca na parte subjetiva e comportamental, utilizando a fala e técnicas científicas para reestruturar pensamentos e hábitos. Já o termo terapeuta é uma designação genérica para qualquer pessoa que aplique técnicas de cuidado, mas que, ao contrário dos outros dois, não possui necessariamente uma formação acadêmica ou regulamentação clínica para tratar transtornos mentais."
     },
     {
         question: "Psicanálise não é só falar do passado?",
-        answer: "Falamos do passado para entender como ele atua no presente. O foco é entender padrões inconscientes e transformá-los, gerando mudanças concretas aqui e agora."
+        answer: "Falar do passado é apenas uma das partes do processo. Investigamos a sua história para identificar a origem de padrões, traumas e crenças que ainda operam e limitam suas decisões no presente. O passado serve como um dos vários recursos para compreendermos como você se estruturou, mas o foco da psicoterapia é utilizar essa clareza para construir mudanças práticas, funcionais e sustentáveis na sua vida no momento presente."
     },
     {
         question: "E se eu achar que a terapia não está funcionando pra mim?",
-        answer: "Conversamos sobre o que não está funcionando, ajustamos o método ou objetivos e, se necessário, redesenhamos o processo. Terapia é construção conjunta."
+        answer: "O feedback é parte do processo. Se os resultados não estão aparecendo, analisamos se os objetivos iniciais mudaram ou se a abordagem precisa de ajustes. A transparência entre nós é o que garante a eficácia do trabalho."
     },
     {
         question: "E se eu tiver medo de me abrir?",
-        answer: "O medo é compreensível. Avançamos no seu tempo, sempre com respeito aos seus limites. A confiança nasce aos poucos e é construída no diálogo."
+        answer: "O medo é compreensível. Avançamos no seu tempo, sempre com respeito aos seus limites. A confiança nasce aos poucos e é construída no diálogo. Lembre-se de que o sigilo é sempre absoluto, ou seja, absolutamente nada do que você disser será compartilhado com terceiros."
     },
     {
         question: "Eu preciso falar sobre tudo na terapia?",
-        answer: "Você não precisa contar tudo de uma vez. Compartilhe o que fizer sentido em cada momento. Aos poucos, o espaço se torna seguro para assuntos mais delicados."
+        answer: "Você traz para as sessões o que fizer sentido para você e o que for relevante para as suas questões atuais. Não há necessidade de exposição forçada ou de falar sobre tudo de uma vez. Contudo, é importante considerar que a transparência sobre fatos centrais é o que permite um diagnóstico preciso e uma intervenção que realmente gere os resultados que você busca."
     },
     {
         question: "E se eu já fiz terapia antes e não deu certo?",
-        answer: "Cada processo é diferente. Entendemos o que não funcionou antes e construímos uma experiência nova, com outra abordagem e objetivos mais alinhados ao seu momento."
+        answer: "Diferentes momentos de vida e diferentes abordagens técnicas geram resultados distintos. Uma experiência anterior negativa não invalida a eficácia do método, apenas indica que aquela configuração específica não foi a ideal para você na época."
     },
     {
         question: "Psicólogo dá conselho?",
-        answer: "Mais do que conselhos, ofereço reflexões, ferramentas e perguntas que ampliam sua visão. A ideia é que você encontre respostas autênticas e tome decisões com consciência."
+        answer: "O papel principal do psicólogo não é o de aconselhador, mas sim o de facilitador da sua autonomia. No entanto, dependendo do contexto e da abertura do processo, posso oferecer orientações e perspectivas técnicas mais diretas. Nesses momentos, utilizamos a psicoeducação para que você compreenda as bases de cada sugestão, garantindo que qualquer decisão final seja sempre fundamentada na sua individualidade e nos seus próprios valores."
     }
 ];
 
@@ -883,7 +566,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTestimonials();
     renderFAQ();
     renderInfoAccordion();
-    initServiceCardClicks();
     lucide.createIcons();
     
     // Inicializar typewriter
