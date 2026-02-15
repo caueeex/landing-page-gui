@@ -419,35 +419,46 @@ function closeInfoModal() {
     }
 }
 
-// Contact Form
-document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
+// Contact Form - envia direto para o WhatsApp cadastrado
+const WHATSAPP_NUMBER = '5512982621818';
+
+document.getElementById('contactForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value,
-        consent: document.getElementById('consent').checked
-    };
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const consent = document.getElementById('consent').checked;
     
-    if (!formData.consent) {
+    if (!consent) {
         showToast('Por favor, aceite a política de privacidade para continuar.');
         return;
     }
     
-    // Simulate form submission
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
+    if (!name || !email || !message) {
+        showToast('Preencha todos os campos obrigatórios (Nome, E-mail e Mensagem).');
+        return;
+    }
     
-    setTimeout(() => {
-        showToast('Mensagem enviada com sucesso! Entrarei em contato em breve. Obrigado!');
-        document.getElementById('contactForm').reset();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i data-lucide="send"></i> Enviar mensagem';
-        lucide.createIcons();
-    }, 1500);
+    // Monta a mensagem no formato para WhatsApp
+    const phoneLine = phone ? phone : 'Não informado';
+    const text = [
+        '*Novo contato pelo site*',
+        '',
+        '*Nome:* ' + name,
+        '*E-mail:* ' + email,
+        '*Telefone:* ' + phoneLine,
+        '*Mensagem:*',
+        message
+    ].join('\n');
+    
+    const url = 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(text);
+    
+    showToast('Redirecionando para o WhatsApp...');
+    window.open(url, '_blank');
+    
+    document.getElementById('contactForm').reset();
 });
 
 // Set current year in footer

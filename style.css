@@ -427,15 +427,12 @@ body {
     .hero-buttons {
         align-items: center;
         width: 100%;
-        margin-left: 36px !important;
+        /* margin-left: 36px !important; */
     }
     
-    /* Botão Agende Sua Consulta - Mobile */
+    /* Botão Agende Sua Consulta - oculto no mobile */
     .btn-agende-mobile {
-        display: flex !important;
-        margin-top: 1.5rem;
-        padding: 7px;
-        font-size: 0.875rem;
+        display: none !important;
     }
     
     .btn-agende-icon {
@@ -484,12 +481,9 @@ body {
         padding: 0 1.5rem;
     }
     
-    /* Botão Agende Sua Consulta - Mobile */
+    /* Botão Agende Sua Consulta - oculto no mobile */
     .btn-agende-mobile {
-        display: flex !important;
-        margin-top: 1.5rem;
-        padding: 7px;
-        font-size: 0.9375rem;
+        display: none !important;
     }
 }
 
@@ -3718,7 +3712,7 @@ img {
 }
 @media (max-width: 480px) {
     .hero-buttons{
-        align-items: start;
+        align-items: center;
     }
     .btn-outline{
         width: auto;
