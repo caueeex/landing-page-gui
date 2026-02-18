@@ -973,16 +973,19 @@ body {
     color: hsl(var(--primary));
 }
 
-/* Ícones – cor rgb(39, 98, 180) / #2762b4 */
+/* Ícones – mesma cor mobile e desktop (filtro único) */
 .service-icon svg {
     width: 40px;
     height: 40px;
     display: block;
+    filter:
+        brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1500%)
+        hue-rotate(188deg) brightness(92%) contrast(91%);
 }
 
 .service-icon svg * {
-    fill: rgb(32, 80, 148) !important;
-    stroke: rgb(32, 80, 148) !important;
+    fill: #000 !important;
+    stroke: #000 !important;
 }
 
 .service-icon img {
@@ -1040,21 +1043,6 @@ body {
     }
 }
 
-/* Mobile: ícones mais escuros */
-@media (max-width: 768px) {
-    .service-icon svg * {
-        fill: rgb(15, 45, 95) !important;
-        stroke: rgb(15, 45, 95) !important;
-    }
-    .service-icon img,
-    .service-icon img.service-icon-maleta,
-    .service-icon-maleta,
-    .service-icon-sonho img {
-        filter:
-            brightness(0) saturate(100%) invert(22%) sepia(90%) saturate(1600%)
-            hue-rotate(188deg) brightness(72%) contrast(95%) !important;
-    }
-}
 
 .service-card h3 {
     font-weight: 600;
