@@ -973,17 +973,17 @@ body {
     color: hsl(var(--primary));
 }
 
-/* Ícones SVG e img com o mesmo filtro de cor */
+/* Ícones SVG e img – azul mais forte */
 .service-icon svg {
     width: 40px;
     height: 40px;
     display: block;
     filter:
-        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
-        hue-rotate(188deg) brightness(85%) contrast(89%);
+        brightness(0) saturate(100%) invert(48%) sepia(55%) saturate(2000%)
+        hue-rotate(188deg) brightness(78%) contrast(92%);
 }
 
-/* SVG em preto para o filtro gerar a mesma cor dos img */
+/* SVG em preto para o filtro gerar o azul */
 .service-icon svg * {
     fill: #000 !important;
     stroke: #000 !important;
@@ -995,16 +995,16 @@ body {
     object-fit: contain;
     display: block;
     filter:
-        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
-        hue-rotate(188deg) brightness(85%) contrast(89%);
+        brightness(0) saturate(100%) invert(48%) sepia(55%) saturate(2000%)
+        hue-rotate(188deg) brightness(78%) contrast(92%);
 }
 
-/* Ícone maleta (Carreira e Financeiro) – mesma cor com especificidade extra para evitar override em produção */
+/* Ícone maleta (Carreira e Financeiro) – mesma cor */
 .service-icon img.service-icon-maleta,
 .service-icon-maleta {
     filter:
-        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
-        hue-rotate(188deg) brightness(85%) contrast(89%);
+        brightness(0) saturate(100%) invert(48%) sepia(55%) saturate(2000%)
+        hue-rotate(188deg) brightness(78%) contrast(92%);
 }
 
 .service-icon-sonho {
@@ -1013,8 +1013,8 @@ body {
 
 .service-icon-sonho img {
     filter:
-        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
-        hue-rotate(188deg) brightness(85%) contrast(89%);
+        brightness(0) saturate(100%) invert(48%) sepia(55%) saturate(2000%)
+        hue-rotate(188deg) brightness(78%) contrast(92%);
 }
 
 /* Ícones maiores apenas no desktop - Falta de Direção */
