@@ -427,7 +427,7 @@ body {
     .hero-buttons {
         align-items: center;
         width: 100%;
-        /* margin-left: 36px !important; */
+        margin-left: 36px !important;
     }
     
     /* Botão Agende Sua Consulta - oculto no mobile */
@@ -980,8 +980,8 @@ body {
 }
 
 .service-icon svg * {
-    fill: hsl(var(--primary)) !important;
-    stroke: hsl(var(--primary)) !important;
+    fill: #3c8cdd !important;
+    stroke: #3c8cdd !important;
 }
 
 .service-icon img {
@@ -989,7 +989,8 @@ body {
     height: 40px;
     object-fit: contain;
     display: block;
-    filter: none;
+    /* Aplica cor #3c8cdd em ícones PNG (ex.: maleta, bombear, autossabotagem) */
+    filter: brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%) hue-rotate(196deg) brightness(95%) contrast(89%);
 }
 
 .service-icon-sonho {
@@ -997,7 +998,7 @@ body {
 }
 
 .service-icon-sonho img {
-    filter: brightness(0) saturate(100%) invert(58%) sepia(95%) saturate(1352%) hue-rotate(188deg) brightness(105%) contrast(95%);
+    filter: brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%) hue-rotate(196deg) brightness(95%) contrast(89%);
 }
 
 .service-card h3 {
@@ -2454,6 +2455,12 @@ body {
         width: 60px;
         height: 60px;
     }
+
+    .service-card[data-service-title="Vícios e Autocontrole"] .service-icon img,
+    .service-icon-vicios {
+        width: 80px !important;
+        height: 80px !important;
+    }
     .service-card h3 {
         font-size: 1rem;
         margin-bottom: 0.5rem;
@@ -3712,7 +3719,7 @@ img {
 }
 @media (max-width: 480px) {
     .hero-buttons{
-        align-items: center;
+        align-items: start;
     }
     .btn-outline{
         width: auto;

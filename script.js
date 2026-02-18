@@ -233,9 +233,6 @@ window.addEventListener('resize', () => {
     renderTestimonials();
 });
 
-// Auto-advance testimonials
-setInterval(nextTestimonial, 7000);
-
 // FAQ Accordion
 const faqs = [
     {
