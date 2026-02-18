@@ -973,15 +973,20 @@ body {
     color: hsl(var(--primary));
 }
 
+/* Ícones SVG e img com o mesmo filtro de cor */
 .service-icon svg {
     width: 40px;
     height: 40px;
     display: block;
+    filter:
+        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
+        hue-rotate(188deg) brightness(85%) contrast(89%);
 }
 
+/* SVG em preto para o filtro gerar a mesma cor dos img */
 .service-icon svg * {
-    fill: #3c8cdd !important;
-    stroke: #3c8cdd !important;
+    fill: #000 !important;
+    stroke: #000 !important;
 }
 
 .service-icon img {
@@ -989,8 +994,9 @@ body {
     height: 40px;
     object-fit: contain;
     display: block;
-    /* Aplica cor #3c8cdd em ícones PNG (ex.: maleta, bombear, autossabotagem) */
-    filter: brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%) hue-rotate(196deg) brightness(95%) contrast(89%);
+    filter:
+        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
+        hue-rotate(188deg) brightness(85%) contrast(89%);
 }
 
 .service-icon-sonho {
@@ -998,7 +1004,34 @@ body {
 }
 
 .service-icon-sonho img {
-    filter: brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%) hue-rotate(196deg) brightness(95%) contrast(89%);
+    filter:
+        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
+        hue-rotate(188deg) brightness(85%) contrast(89%);
+}
+
+/* Ícones maiores apenas no desktop - Falta de Direção */
+@media (min-width: 1024px) {
+    /* .service-icon-direcao {
+        width: 180px;
+        height: 126px;
+    } */
+    .service-icon-direcao svg {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Ícones maiores apenas no desktop - Vícios e Autocontrole */
+@media (min-width: 1024px) {
+    /* .service-icon-vicios-box {
+        width: 180px;
+        height: 126px;
+    } */
+    .service-icon-vicios-box .service-icon-vicios,
+    .service-icon-vicios-box img {
+        width: 90px;
+        height: 90px;
+    }
 }
 
 .service-card h3 {
