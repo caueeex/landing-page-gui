@@ -1052,7 +1052,7 @@ body {
     .service-icon-sonho img {
         filter:
             brightness(0) saturate(100%) invert(32%) sepia(93%) saturate(1500%)
-            hue-rotate(188deg) brightness(82%) contrast(93%);
+            hue-rotate(188deg) brightness(82%) contrast(93%) !important;
     }
 }
 
