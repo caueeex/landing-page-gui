@@ -1040,19 +1040,19 @@ body {
     }
 }
 
-/* Mobile: ícones um pouco mais escuros */
+/* Mobile: ícones mais escuros */
 @media (max-width: 768px) {
     .service-icon svg * {
-        fill: rgb(25, 65, 130) !important;
-        stroke: rgb(25, 65, 130) !important;
+        fill: rgb(15, 45, 95) !important;
+        stroke: rgb(15, 45, 95) !important;
     }
     .service-icon img,
     .service-icon img.service-icon-maleta,
     .service-icon-maleta,
     .service-icon-sonho img {
         filter:
-            brightness(0) saturate(100%) invert(32%) sepia(93%) saturate(1500%)
-            hue-rotate(188deg) brightness(82%) contrast(93%) !important;
+            brightness(0) saturate(100%) invert(22%) sepia(90%) saturate(1600%)
+            hue-rotate(188deg) brightness(72%) contrast(95%) !important;
     }
 }
 
