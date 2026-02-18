@@ -999,6 +999,14 @@ body {
         hue-rotate(188deg) brightness(85%) contrast(89%);
 }
 
+/* Ícone maleta (Carreira e Financeiro) – mesma cor com especificidade extra para evitar override em produção */
+.service-icon img.service-icon-maleta,
+.service-icon-maleta {
+    filter:
+        brightness(0) saturate(100%) invert(62%) sepia(52%) saturate(1847%)
+        hue-rotate(188deg) brightness(85%) contrast(89%);
+}
+
 .service-icon-sonho {
     position: relative;
 }
