@@ -1029,14 +1029,16 @@ body {
     }
 }
 
-/* Ícones maiores apenas no desktop - Vícios e Autocontrole */
+/* Ícone maior apenas no card Vícios e Autocontrole (desktop) */
 @media (min-width: 1024px) {
-    /* .service-icon-vicios-box {
-        width: 180px;
-        height: 126px;
-    } */
-    .service-icon-vicios-box .service-icon-vicios,
-    .service-icon-vicios-box img {
+
+    .service-card[data-service-title="Vícios e Autocontrole"] .service-icon svg {
+        width: 80px;
+        height: 80px;
+    }
+}
+@media (max-width: 768px) {
+    .service-card[data-service-title="Vícios e Autocontrole"] .service-icon svg {
         width: 90px;
         height: 90px;
     }
