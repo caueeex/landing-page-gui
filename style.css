@@ -1040,15 +1040,19 @@ body {
     }
 }
 
-/* Mobile: mesma cor rgb(39, 98, 180) – SVGs já usam fill, imgs mantêm filtro */
+/* Mobile: ícones um pouco mais escuros */
 @media (max-width: 768px) {
+    .service-icon svg * {
+        fill: rgb(25, 65, 130) !important;
+        stroke: rgb(25, 65, 130) !important;
+    }
     .service-icon img,
     .service-icon img.service-icon-maleta,
     .service-icon-maleta,
     .service-icon-sonho img {
         filter:
-            brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1500%)
-            hue-rotate(188deg) brightness(92%) contrast(91%);
+            brightness(0) saturate(100%) invert(32%) sepia(93%) saturate(1500%)
+            hue-rotate(188deg) brightness(82%) contrast(93%);
     }
 }
 
