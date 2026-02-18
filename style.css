@@ -1044,6 +1044,27 @@ body {
     }
 }
 
+/* Mobile: ícones com azul mais escuro */
+@media (max-width: 768px) {
+    .service-icon svg {
+        filter:
+            brightness(0) saturate(100%) invert(35%) sepia(60%) saturate(2200%)
+            hue-rotate(188deg) brightness(70%) contrast(95%);
+    }
+    .service-icon img,
+    .service-icon img.service-icon-maleta,
+    .service-icon-maleta {
+        filter:
+            brightness(0) saturate(100%) invert(35%) sepia(60%) saturate(2200%)
+            hue-rotate(188deg) brightness(70%) contrast(95%);
+    }
+    .service-icon-sonho img {
+        filter:
+            brightness(0) saturate(100%) invert(35%) sepia(60%) saturate(2200%)
+            hue-rotate(188deg) brightness(70%) contrast(95%);
+    }
+}
+
 .service-card h3 {
     font-weight: 600;
     margin-bottom: 0.75rem;
