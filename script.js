@@ -417,7 +417,7 @@ function closeInfoModal() {
 }
 
 // Contact Form - envia direto para o WhatsApp cadastrado
-const WHATSAPP_NUMBER = '5512982621818';
+const WHATSAPP_NUMBER = '12982621818';
 
 document.getElementById('contactForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -450,7 +450,7 @@ document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         message
     ].join('\n');
     
-    const url = 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(text);
+    const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
     
     showToast('Redirecionando para o WhatsApp...');
     window.open(url, '_blank');
